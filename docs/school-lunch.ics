@@ -7,7 +7,7 @@ BEGIN:VEVENT
 SUMMARY:School Lunch
 DTSTART;VALUE=DATE:20251023
 DTEND;VALUE=DATE:20251024
-DTSTAMP:20251023T153026Z
+DTSTAMP:20251023T154524Z
 UID:20251023-lunch@automated-tasks
 DESCRIPTION:Main Dishes:\n  • Chicken Fries\n\n:\n  • Dinner Roll\n  
  • Seasoned Green Beans\n  • Celery Sticks w/ Ranch\n  • Orange Wedge
@@ -17,7 +17,7 @@ BEGIN:VEVENT
 SUMMARY:School Lunch
 DTSTART;VALUE=DATE:20251024
 DTEND;VALUE=DATE:20251025
-DTSTAMP:20251023T153026Z
+DTSTAMP:20251023T154524Z
 UID:20251024-lunch@automated-tasks
 DESCRIPTION:Main Dishes:\n  • Wild Mike's Cheese Bites\n\n:\n  • Sweet
   Corn\n  • Fresh Romaine Garden Salad\n  • Mixed Fruit
@@ -26,7 +26,7 @@ BEGIN:VEVENT
 SUMMARY:School Lunch
 DTSTART;VALUE=DATE:20251027
 DTEND;VALUE=DATE:20251028
-DTSTAMP:20251023T153026Z
+DTSTAMP:20251023T154524Z
 UID:20251027-lunch@automated-tasks
 DESCRIPTION:Main Dishes:\n  • Sausage Patties (2)\n  • Cheeseburger on
   a Bun\n\n:\n  • Waffle Fries\n  • Baby Carrots w/ Ranch\n  • Flavor
@@ -36,7 +36,7 @@ BEGIN:VEVENT
 SUMMARY:School Lunch
 DTSTART;VALUE=DATE:20251028
 DTEND;VALUE=DATE:20251029
-DTSTAMP:20251023T153026Z
+DTSTAMP:20251023T154524Z
 UID:20251028-lunch@automated-tasks
 DESCRIPTION:Main Dishes:\n  • Chicken Patty on Bun\n\n:\n  • Homestyle
   Baked Beans\n  • Celery Sticks w/ Ranch\n  • Strawberry Cup
@@ -45,7 +45,7 @@ BEGIN:VEVENT
 SUMMARY:School Lunch
 DTSTART;VALUE=DATE:20251029
 DTEND;VALUE=DATE:20251030
-DTSTAMP:20251023T153026Z
+DTSTAMP:20251023T154524Z
 UID:20251029-lunch@automated-tasks
 DESCRIPTION:Main Dishes:\n  • Breaded Chicken Drumstick\n\n:\n  • Corn
  bread Muffin\n  • Cheesy Potatoes\n  • Fresh Cucumber Slices w/ Ranch\
@@ -55,7 +55,7 @@ BEGIN:VEVENT
 SUMMARY:School Lunch
 DTSTART;VALUE=DATE:20251030
 DTEND;VALUE=DATE:20251031
-DTSTAMP:20251023T153026Z
+DTSTAMP:20251023T154524Z
 UID:20251030-lunch@automated-tasks
 DESCRIPTION:Main Dishes:\n  • Pulled BBQ Chicken Sandwich\n\n:\n  • Se
  asoned Peas\n  • Fresh Romaine Garden Salad\n  • Chilled Pears
@@ -64,7 +64,7 @@ BEGIN:VEVENT
 SUMMARY:School Lunch
 DTSTART;VALUE=DATE:20251031
 DTEND;VALUE=DATE:20251101
-DTSTAMP:20251023T153026Z
+DTSTAMP:20251023T154524Z
 UID:20251031-lunch@automated-tasks
 DESCRIPTION:Main Dishes:\n  • BOO-sco Sticks\n\n:\n  • Steamed Broccol
  i\n  • Marinara Cup\n\nFruit:\n  •  Fresh Apple Slices\n\nMiscellaneou
