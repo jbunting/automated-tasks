@@ -1,6 +1,15 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//School Lunch Menu//EN
-X-WR-CALNAME:School Lunch Menu
-X-WR-CALDESC:Automated school lunch menu calendar - Waiting for first update
+X-WR-CALDESC:School lunch menu calendar - awaiting data
+X-WR-CALNAME:Kramer Elementary Lunch Menu
+BEGIN:VEVENT
+SUMMARY:Menu Calendar Active
+DTSTART;VALUE=DATE:20251023
+DTEND;VALUE=DATE:20251024
+DTSTAMP:20251023T150912Z
+UID:20251023-placeholder@automated-tasks
+DESCRIPTION:This calendar is active and will be updated with lunch menus w
+ hen available.
+END:VEVENT
 END:VCALENDAR
