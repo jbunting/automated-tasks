@@ -1,21 +1,35 @@
 # School Lunch Menu Calendar
 
-Automatically fetch and convert school lunch menus to iCalendar (ICS) format for easy integration with Google Calendar, Home Assistant, and other calendar applications.
+Automatically convert school lunch menus into an ICS calendar file for easy integration with Google Calendar, Home Assistant, and other calendar applications.
 
 ## Features
 
-- 📅 Automatic monthly updates via GitHub Actions
-- 🌐 Published via GitHub Pages with subscription URL
-- 🔄 Multiple fetching strategies (API, Selenium, PDF)
+- 📅 Parses school lunch menu data from GraphQL JSON
+- 🗓️ Generates standard ICS calendar format
+- 🌐 Published via GitHub Pages for easy subscription
 - 📱 Works with Google Calendar, Apple Calendar, Home Assistant, and more
 - 📊 Historical tracking through Git commits
-- 🎨 Beautiful web interface for easy subscription
+- 🎨 Beautiful web interface for easy access
 
 ## Quick Start
 
-### 1. Enable GitHub Pages
+### 1. Generate the Calendar
 
-1. Go to your repository settings
+The menu data is fetched from the school's website and saved as JSON files. Run the generator:
+
+```bash
+python3 fetch_menu.py
+```
+
+This will:
+- Load saved GraphQL JSON files from `discovery/`
+- Parse menu items for current and upcoming months
+- Generate `docs/school-lunch.ics` with all lunch dates
+- Skip past dates automatically
+
+### 2. Enable GitHub Pages
+
+1. Go to your repository settings on GitHub
 2. Navigate to **Pages** section
 3. Under "Source", select **Deploy from a branch**
 4. Choose branch: **main** (or your default branch)
@@ -27,62 +41,16 @@ Your calendar will be available at:
 https://YOUR-USERNAME.github.io/automated-tasks/school-lunch.ics
 ```
 
-### 2. Configure Your Menu
+### 3. Subscribe to the Calendar
 
-Edit the configuration in `fetch_menu.py`, `fetch_menu_selenium.py`, or `fetch_menu_pdf.py`:
-
-```python
-MENU_ID = "68b708e20b1ac86f9b4efcfc"  # Your menu ID
-SITE_CODE = "4657"                    # Your site code
-```
-
-These values come from your school's menu URL:
-```
-https://www.schoolnutritionandfitness.com/webmenus2/#/view?id=MENU_ID&siteCode=SITE_CODE
-```
-
-### 3. Test Locally
-
-```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Try API-based fetch (fastest)
-python fetch_menu.py
-
-# If that fails, try Selenium (requires Chrome)
-python fetch_menu_selenium.py
-
-# Or use PDF parsing (if PDF URL is available)
-python fetch_menu_pdf.py
-```
-
-The ICS file will be generated in `docs/school-lunch.ics`.
-
-### 4. Trigger Automatic Updates
-
-The GitHub Action runs automatically on the 1st of each month, but you can also:
-
-- **Manual trigger**: Go to Actions → Update School Lunch Menu → Run workflow
-- **Automatic on push**: Pushes to `main` branch trigger updates
-- **Scheduled**: Runs monthly via cron schedule
-
-## Usage
-
-### Subscribe in Google Calendar
-
+**Google Calendar:**
 1. Open [Google Calendar](https://calendar.google.com)
-2. Click the **+** next to "Other calendars"
+2. Click **+** next to "Other calendars"
 3. Select **"From URL"**
-4. Paste your calendar URL: `https://YOUR-USERNAME.github.io/automated-tasks/school-lunch.ics`
+4. Paste: `https://YOUR-USERNAME.github.io/automated-tasks/school-lunch.ics`
 5. Click **"Add calendar"**
 
-**Note**: Google Calendar typically refreshes subscribed calendars every 24 hours.
-
-### Add to Home Assistant
-
-Add to your `configuration.yaml`:
-
+**Home Assistant:**
 ```yaml
 calendar:
   - platform: ical
@@ -90,203 +58,183 @@ calendar:
     url: "https://YOUR-USERNAME.github.io/automated-tasks/school-lunch.ics"
 ```
 
-Restart Home Assistant after updating the configuration.
+**Apple Calendar:**
+1. File → New Calendar Subscription
+2. Enter your calendar URL
+3. Choose update frequency
+4. Click OK
 
-### Subscribe in Apple Calendar
+## Monthly Updates
 
-1. Open Calendar app
-2. Go to **File** → **New Calendar Subscription**
-3. Enter your calendar URL
-4. Choose update frequency and location
-5. Click **OK**
+To add next month's menu:
 
-### Use with Other Apps
+### Step 1: Get the GraphQL Data
 
-The ICS format is standard and works with:
-- Microsoft Outlook
-- Mozilla Thunderbird
-- CalDAV clients
-- Any application supporting iCalendar subscriptions
+1. Open the menu page:
+   ```
+   https://www.schoolnutritionandfitness.com/webmenus2/#/view?id=MENU_ID&siteCode=4657
+   ```
+   Find the correct `MENU_ID` from the [menu list page](https://talawandafoodservice.com/index.php?sid=1533570452221&page=menus)
 
-## Implementation Strategies
+2. Open Developer Tools (F12) → Network tab
 
-This project includes three different approaches to fetch menu data:
+3. Reload the page and look for: `api.isitesoftware.com/graphql`
 
-### 1. API-Based (`fetch_menu.py`)
+4. Click on the request → Response tab → Copy all the JSON
 
-**Best for**: Fast, reliable fetching when the website has an API
+### Step 2: Save and Generate
 
-**Pros**:
-- Fastest execution
-- No browser required
-- Lowest resource usage
+5. Save the JSON to `discovery/menu_YYYY_MM.json`
+   Example: `discovery/menu_2025_11.json` for November 2025
 
-**Cons**:
-- May not work if website only renders via JavaScript
-- Requires finding the API endpoint
+6. Run the generator:
+   ```bash
+   python3 fetch_menu.py
+   ```
 
-### 2. Selenium-Based (`fetch_menu_selenium.py`)
+### Step 3: Publish
 
-**Best for**: JavaScript-heavy websites that don't expose APIs
+7. Commit and push:
+   ```bash
+   git add docs/school-lunch.ics discovery/menu_2025_11.json
+   git commit -m "Add November 2025 lunch menu"
+   git push
+   ```
 
-**Pros**:
-- Handles JavaScript rendering
-- Can interact with dynamic content
-- Works with most modern websites
+The calendar will update automatically on GitHub Pages!
 
-**Cons**:
-- Requires Chrome/ChromeDriver
-- Slower execution
-- Higher resource usage
+## How It Works
 
-### 3. PDF-Based (`fetch_menu_pdf.py`)
+### Data Flow
 
-**Best for**: When PDF menus are available
+1. **Menu Data Source**: School Nutrition and Fitness website uses GraphQL API
+2. **JSON Storage**: GraphQL responses saved in `discovery/` directory
+3. **Parser**: `fetch_menu.py` reads JSON files and extracts menu items
+4. **ICS Generation**: Creates standard iCalendar format
+5. **GitHub Pages**: Serves the ICS file at a public URL
+6. **Calendar Apps**: Subscribe and auto-refresh (usually daily)
 
-**Pros**:
-- PDFs are often more stable format
-- Good for printed formats
-- No JavaScript issues
-
-**Cons**:
-- Requires finding PDF URL
-- PDF parsing can be tricky
-- Layout changes can break parsing
-
-## Project Structure
+### File Structure
 
 ```
 automated-tasks/
-├── .github/
-│   └── workflows/
-│       └── update-menu.yml      # GitHub Actions workflow
-├── docs/
-│   ├── index.html               # Web interface
-│   └── school-lunch.ics         # Generated calendar file
-├── fetch_menu.py                # API-based fetcher
-├── fetch_menu_selenium.py       # Selenium-based fetcher
-├── fetch_menu_pdf.py           # PDF parser
-├── requirements.txt             # Python dependencies
-└── README.md                    # This file
+├── discovery/              # Saved GraphQL JSON files
+│   ├── kramer-graphql.json
+│   └── menu_YYYY_MM.json   # Add new months here
+├── docs/                   # GitHub Pages root
+│   ├── index.html          # Web interface
+│   └── school-lunch.ics    # Generated calendar
+├── fetch_menu.py           # Main script (WORKING!)
+└── README.md               # This file
 ```
 
-## Customization
+### JSON File Formats
 
-### Change Update Frequency
+The script accepts GraphQL responses in these formats:
 
-Edit `.github/workflows/update-menu.yml`:
-
-```yaml
-schedule:
-  # Weekly on Monday at 3 AM
-  - cron: '0 3 * * 1'
-
-  # Daily at 3 AM
-  - cron: '0 3 * * *'
-
-  # First and 15th of month
-  - cron: '0 3 1,15 * *'
+**Full GraphQL response:**
+```json
+{
+  "data": {
+    "menu": {
+      "year": 2025,
+      "month": 10,
+      "items": [...]
+    }
+  }
+}
 ```
 
-### Customize Calendar Events
+**Or just the menu data:**
+```json
+{
+  "year": 2025,
+  "month": 10,
+  "items": [...]
+}
+```
 
-Edit the `ICSGenerator` class in your chosen script:
+## Configuration
+
+Edit `fetch_menu.py` to customize:
 
 ```python
-event.add('summary', 'Lunch Menu')  # Change event title
-event.add('description', ...)        # Customize description
-event.add('location', 'School Cafeteria')  # Add location
-```
-
-### Add Reminders
-
-Modify the event creation to add alarms:
-
-```python
-from icalendar import Alarm
-
-alarm = Alarm()
-alarm.add('action', 'DISPLAY')
-alarm.add('trigger', timedelta(hours=-1))  # 1 hour before
-event.add_component(alarm)
+# Lines 231-235
+DISCOVERY_DIR = Path("discovery")      # Where JSON files are stored
+OUTPUT_DIR = Path("docs")              # Where to save ICS file
+OUTPUT_FILE = OUTPUT_DIR / "school-lunch.ics"  # Calendar filename
+CALENDAR_NAME = "Kramer Elementary Lunch"      # Calendar display name
 ```
 
 ## Troubleshooting
 
+### No Events Found
+
+- Check that JSON files are in `discovery/` directory
+- Verify JSON has `items` array with menu data
+- Ensure dates are current/upcoming (past dates are skipped)
+
 ### Calendar Not Updating
 
-1. **Check GitHub Actions**: Go to Actions tab and verify the workflow runs successfully
-2. **Force manual run**: Actions → Update School Lunch Menu → Run workflow
-3. **Check for errors**: Review workflow logs for error messages
-4. **Verify menu ID**: Ensure MENU_ID and SITE_CODE are correct
+- Verify GitHub Pages is enabled
+- Check that ICS file exists in `docs/` directory
+- Calendar apps typically refresh every 24 hours
+- Try removing and re-adding the subscription
 
-### No Events in Calendar
+### Invalid JSON
 
-1. **Test locally**: Run the fetch script on your computer
-2. **Check debug files**: GitHub Actions uploads screenshots and page source
-3. **Website changed**: The menu website structure may have changed
-4. **Menu not published**: Check if the menu for the current month is available
-
-### Google Calendar Not Refreshing
-
-- Google Calendar updates subscribed calendars approximately every 24 hours
-- You cannot force an immediate refresh for subscribed calendars
-- Consider using a different calendar app for faster updates
-
-### Selenium Issues in GitHub Actions
-
-The workflow automatically installs Chrome and ChromeDriver, but if you encounter issues:
-
-1. Check Chrome version compatibility
-2. Update ChromeDriver version in workflow
-3. Review the uploaded screenshot to see what's rendering
+- Make sure you copied the complete JSON response
+- Check that braces `{}` are properly matched
+- Use a JSON validator to verify format
 
 ## Advanced Usage
 
-### Multiple Menus
+### Multiple Schools
 
 To track multiple schools:
 
-1. Create separate scripts for each menu
-2. Generate different ICS files (e.g., `school1-lunch.ics`, `school2-lunch.ics`)
-3. Update the workflow to run all scripts
-4. Subscribe to each calendar separately
+1. Create separate JSON files for each school/meal type
+2. Modify `fetch_menu.py` to generate separate ICS files
+3. Subscribe to each calendar separately
 
-### Email Notifications
+### Automation Ideas
 
-Add email notification to the workflow:
+While the GraphQL API requires browser authentication, you could:
+- Set up a monthly reminder to update the JSON
+- Use a browser automation tool (Selenium, Puppeteer)
+- Create a bookmarklet to extract and download the JSON
 
-```yaml
-- name: Send notification
-  if: steps.check_calendar.outputs.has_events == 'true'
-  uses: dawidd6/action-send-mail@v3
-  with:
-    server_address: smtp.gmail.com
-    server_port: 465
-    username: ${{ secrets.EMAIL_USERNAME }}
-    password: ${{ secrets.EMAIL_PASSWORD }}
-    subject: School lunch menu updated
-    to: your-email@example.com
-    from: GitHub Actions
-    body: The school lunch menu has been updated!
+### Custom Formatting
+
+Edit the `parse_graphql_to_events()` function in `fetch_menu.py` to customize:
+- Event titles
+- Description formatting
+- Category grouping
+- Additional fields
+
+## Technical Details
+
+**Language:** Python 3.8+
+
+**Dependencies:**
+- `icalendar` - ICS file generation
+- `requests` - HTTP requests (for future API automation)
+- `beautifulsoup4` - HTML parsing (for future scraping)
+
+**Install:**
+```bash
+pip install -r requirements.txt
 ```
 
-### Webhook Integration
-
-Trigger webhooks on update:
-
-```yaml
-- name: Trigger webhook
-  if: steps.check_calendar.outputs.has_events == 'true'
-  run: |
-    curl -X POST https://your-webhook-url.com/notify \
-      -H "Content-Type: application/json" \
-      -d '{"message": "Menu updated", "date": "'$(date)'"}'
-```
+**API Details:**
+- GraphQL endpoint: `https://api.isitesoftware.com/graphql`
+- Requires browser session (cookies/headers)
+- Returns menu data with items array
+- Month is 0-indexed (0=January, 11=December)
 
 ## Contributing
 
-Found an issue or have an improvement? Feel free to open an issue or pull request!
+Found a bug or have an improvement? Feel free to open an issue or pull request!
 
 ## License
 
@@ -297,8 +245,3 @@ MIT License - See LICENSE file for details
 - School Nutrition and Fitness for providing the menu data
 - iCalendar library for ICS generation
 - GitHub Pages for free hosting
-- GitHub Actions for automation
-
-## Support
-
-If you find this useful, please star the repository! ⭐
