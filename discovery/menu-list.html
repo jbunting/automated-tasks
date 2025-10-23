@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.schoolnutritionandfitness.com/dist/commons-c759375ac14114846cae.js"></script>
+    <script src="https://www.schoolnutritionandfitness.com/dist/snaffrontend-7176b585575c2d7ee1ae.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Talawanda School District - School Nutrition And Fitness</title>
+  <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="no-cache, must-revalidate">
+  <META NAME="author" CONTENT="ISITE Software, LLC">
+  <META name="keywords" content="school, nutrition, fitness, healthy, food, US, diet, district, services">
+  <META name="description" content="School Nutrition and Fitness provides a districts nutrition services department with the tools and information needed to get the word out about the program. Providing parents students and teachers with the resources to help raise and healthy generation.">
+  <meta http-equiv="imagetoolbar" content="no">
+  <link rel="stylesheet" href="css/global.css?1761058361">  <link rel="stylesheet" href="css/nivo-slider.css?1761058361">  <link rel="stylesheet" href="css/nivo-themes/light/light.css?1761058361">  <link rel="stylesheet" href="css/jqthemes/smoothness/jquery-ui-1.8.15.custom.css?1761058361">  <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css?1761058361">  <link rel="stylesheet" href="css/main_layout_theme2.css?1761058361">  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:200,400,500,600,700" rel="stylesheet">
+  <style type="text/css">
+        body {background-color: #ffffff;}    div#pgwrapper {background-image: url(district/talawandafood/layout/bg.png?cacheBust=1533571838996) !important;}
+    div#pageBackground {visibility: hidden}
+    div#topnav {background-color: #e0e0e0;}
+    div#topnav {background-image: url('../images/newlayout_theme1/TopNav_WhiteAccent.png');}
+    div#content div#main_menu {border: 1px solid #c22334;background-color: #c22334;}
+    div#wrapper2 {border-top: 1px solid #2f4e81;background-color: #2f4e81;}
+    div#footer div.footer-col {border-right: 1px solid #2f4e81; color: #FFFFFF;}
+    div#footer ul li a {color: #FFFFFF;}
+    div#footer ul li a:hover {background-color: #e0e0e0; color: #000000;}
+    div#content div#main_menu a {color: #FFFFFF;}
+    div#content div#main_menu a:hover {color: #FFFFFF;}
+    div#content div#main_menu .caret {color:#FFFFFF;border-top-color: #FFFFFF;border-bottom-color:#FFFFFF;}
+    div#header img#districtHeader {border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;}
+    /*div#header div#header-bg2 {background-image: url(district/talawandafood/layout/header/0.png);}*/
+    /*div#header div#header-bg1 {height:350px;background-image: url(district/talawandafood/layout/header/overlay.png);}*/
+/*    div#header #header-container #header-bg1 {background-image: url(district/*//*/layout/header/0.png);}*/
+  </style>
+      <link rel="stylesheet" href="css/main_layout_theme2_overrides_legacy.css?1761058361">    <script src="js/jquery-3.7.1.min.js?1761058358"></script>  <script src="js/jquery.nivo.slider.pack.js?1761058358"></script>  <script src="js/jquery.equal-height-columns.js?1761058358"></script>  <script src="js/bootstrap.min.js?1761058355"></script>  <script src="js/jquery-ui-1.8.15.custom.min.js?1761058358"></script>  <script src="js/components/ajax.js?1761058355"></script>  <script src="js/components/nutritionlabel.js?1761058355"></script>  <script src="js/components/base64_enc-dec.js?1761058355"></script>  <script src="js/global.js?1761058355"></script>  <script src="js/xglobal.js?1761058358"></script>  <script src="js/dwin/dhtmlwindow.js?1761058355"></script>  <script src="js/lodash/lodash.min.js?1761058358"></script>  <link rel="stylesheet" href="css/dwin/dhtmlwindow.css?1761058361">  <link rel="stylesheet" href="css/dwin/modal.css?1761058361">  <script src="js/dwin/modal.js?1761058355"></script>  <!-- Google Stats -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-57245967-1', 'auto');
+        ga('send', 'pageview');
+
+          </script>
+  <!-- End Google Stats -->
+  <script type="text/javascript">
+
+     var headerBG = [];
+            headerBG.push('https://docs.isitesoftware.com/snaf-images/header-slideshow/1533570452221/talawandasd-slider1-0');
+                headerBG.push('https://docs.isitesoftware.com/snaf-images/header-slideshow/1533570452221/talawandasd-slider2-0');
+                headerBG.push('https://docs.isitesoftware.com/snaf-images/header-slideshow/1533570452221/talawandasd-slider3-0');
+                headerBG.push('https://docs.isitesoftware.com/snaf-images/header-slideshow/1533570452221/talawandasd-slider4-0');
+        
+     var headerDetails = {total:headerBG.length,curpos:0,timer:null,bgpos:1};
+     $(window).ready(function() {
+         $("#slider").nivoSlider({effect:'sliceUp,fold,fade,sliceUpLeft',pauseTime:5000});
+     });
+     $(document).ready(function(){
+         headerNextImg();
+         headerDetails.timer = setInterval(function() { headerNextImg(); },5000);
+                  var stickyNavTop = $("#topnav").offset().top;
+         var stickyNav = function() {
+                 var scrollTop = $(window).scrollTop();
+                 if(scrollTop > stickyNavTop) {
+                    $("#scrollToTop").removeClass('hideScrollToTop');
+                 } else {
+                     $("#scrollToTop").addClass('hideScrollToTop');
+                 }
+         };
+         stickyNav();
+        //  equalHeightCols("#footer .footer-col");
+         $(window).scroll(function() {
+                 stickyNav();
+         });
+                  setBoxes();
+         $("#translation-dlg").modal({show:false});
+         $("#facebook-dlg").modal({show:false});
+         $("#twitter-dlg").modal({show:false});
+         $("#modernbrowsers-dlg").modal({show:false});
+         $("#usda-legal-dlg").modal({show:false});
+         $("#nutrimenu-values-dlg").modal({show:false}).css({'width': '850px','margin-left': function () {return -($(this).width() / 2);}});
+         $("#nutriboard-values-dlg").modal({show:false}).css({'width': '825px','margin-left': function () {return -($(this).width() / 2);},'margin-top':function () {return -(($(this).height() / 2));}});
+         $("#nutriboard-values-dlg .modal-header").css({'max-height':'25px'});
+         $("#nutriboard-values-dlg .modal-body").css({'max-height':'550px'});
+         $("#topnav-googleTranslate a").tooltip({placement:'bottom',title:'Translate Website'});
+         $("#topnav-social a").tooltip({placement:'bottom'});
+         $("#scrollToTop a").tooltip({placement:'bottom'});
+         //$("#topnav-social #facebook-logo").popover({placement:'bottom',html:true,content:facebookPopover()});
+         $('.dropdown-menu').find('form').click(function (e) {
+             e.stopPropagation();
+         });
+     });
+     function loadEvents() {
+         $("#topnav #distHomeBtn").button({ text: true, icons: {primary: "ui-icon-home"}});
+         $("#topnav #tlcBtn").button({ text: true, icons: {primary: "ui-icon-cart"}});
+         $("#topnav #classpartyBtn").button({ text: true, icons: {primary: "ui-icon-cart"}});
+         $("#topnav #sncaterBtn").button({ text: true, icons: {primary: "ui-icon-cart"}}).click(function(event){event.preventDefault();sncater()});
+         $("#topnav #mobileswitchBtn").button({ text: true, icons: {primary: "ui-icon-cart"}});
+         //$("#langSet ").buttonset();
+     }
+  </script>
+    <script language="JavaScript" type="text/javascript">
+        var engineIdentity = "main_layout_theme2/";
+                var queryParams = {"sid":"1533570452221","page":"menus","pagesv2":"577ff780eabc88f6568b4568"};
+    </script>
+  
+    <link rel="stylesheet" href="js/photoswipe/photoswipe.css?1761058358">  <link rel="stylesheet" href="js/photoswipe/default-skin/default-skin.css?1761058358">  <script src="js/photoswipe/photoswipe.min.js?1761058358"></script>  <script src="js/photoswipe/photoswipe-ui-default.min.js?1761058358"></script>  <link rel="stylesheet" href="css/gallery.css?1761058361">  <link rel="stylesheet" href="js/slick/slick.css?1761058358">  <link rel="stylesheet" href="js/slick/slick-theme.css?1761058358">  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="js/slick/slick.min.js?1761058358"></script>  <script src="js/slick-photoswipe.js?1761058358"></script></head>
+
+<body ng-app="frontendApp" ng-controller="frontendCntrl">
+  <div class="focus-ini"><a href="#content-page-wrapper" alt="Skip to main content" class="skip-to-content" tabindex="0">Skip to main content</a></div>
+  <div id="sid" style="display:none">1533570452221</div>
+  <div id="pageBackground"></div>
+  <div id="pgwrapper">
+    <div id="topnav" class="sticky" role="navigation">
+        <table style="border: 0; text-align: center; width:98%; height: 32px">
+          <tr>
+            <td style="text-align:left">
+                    <a id="distHomeBtn" href="https://www.talawanda.org/">District Home</a>
+    
+
+
+            </td>
+            <td style="text-align:right">
+              <!--<span id="topnav-googleTranslate"><a data-toggle="modal" href="#translation-dlg" title="Translate Website"><img src="images/translate_24.png" alt="Translate Icon" /></a></span>-->
+              <span id="topnav-googleTranslate" class="googleTranslateBtn"><a href="javascript:void(0)" onClick="displayModal('#translation-dlg','show')" title="Translate Website"><img src="images/google-translate-button.jpg" alt="Google Translate" /></a></span>
+                            <span id="scrollToTop" class="hideScrollToTop"><span class="bar-sep-24"> </span><a href="javascript:void(0)" onClick="smoothScrollToTop();"; title="Scroll To Top"><img src="images/arrow-090.png" alt="Scroll To Top" /></a></span>
+            </td>
+          </tr>
+        </table>
+    </div>
+    <div id="wrapper">
+            <!-- <div id="header" align="center"> -->
+        <!-- <div id="header-bg1"><div id="header-bg2"><a id="distHomeLogo" href="https://www.talawanda.org/"><img id="districtHeader" src="district/talawandafood/layout/header/overlay.png" alt="Overlay"></a></div></div> -->
+      <!-- </div> -->
+      <div class="membershipToolbarContainer">
+              </div>
+        <div id="header" style="text-align:center" role="banner">
+            <div id="header-container">
+                <div id="overlay-header"><!-- all themes - going forward.. --><a id="distHomeLogo" href="https://www.talawanda.org/">
+      <img id="districtHeader" 
+        src="https://docs.isitesoftware.com/snaf-assets/district/talawandafood/layout/logo2.png"
+        alt="District Home Logo" />
+    </a></div>
+                <div id="header-bg1"></div>
+                <div id="header-bg2"></div>
+                            </div>
+        </div>
+                          <img class="content_top" src="images/newlayout_theme1/BodyTop.png" alt="content_top" />
+      <div id="content">
+                <div id="main_menu">
+          <nav class="navbar" role="navigation"> <!-- Nav -->
+            <ul class="nav navbar-nav">
+                            <li><a href="index.php?sid=1533570452221">Home</a></li>
+              <li><a href="index.php?sid=1533570452221&page=menus">Menus</a></li>
+              <li><a href="index.php?sid=1533570452221&page=prepaidacct">Pre-Payment Options</a></li>
+              <li><a href="index.php?sid=1533570452221&page=nutriandfit">Nutrition &amp; Fitness</a></li>
+              <li><a href="index.php?sid=1533570452221&page=parentstudentteacher">Nutrition Education</a></li>
+              <li><a href="index.php?sid=1533570452221&page=staff">Contact Us</a></li>
+              <li><a href="index.php?sid=1533570452221&page=wellnesspolicy">Wellness Policy</a></li>
+                          </ul>
+          </nav> <!-- End Nav -->
+          <div style="clear:both"></div>
+        </div>
+                        <div id="content-page-wrapper">
+                <table style="width:100%; margin-bottom:25px;" role="main">
+        <tr>
+                            <td style="vertical-align: top; padding-left:12px; padding-right:12px; width: 100%">
+                                            <div class="block" style="overflow: hidden; padding-top: 0px;">
+                                <a class="featured-image" href="index.php?sid=1533570452221&page=automenu"><img
+            src="images/goinggreenmenus.jpg" style="border:0;width:200px;" alt="Going Green"></a>
+    
+<h1 class="page-heading">Menus</h1>
+
+<p>Meals, foods and beverages sold or served at schools meet state and federal requirements based on the USDA Dietary Guidelines. All meals, foods and beverages are prepared and served by qualified child nutrition professionals. We provide students with access to a variety of affordable and appealing foods that meet the health and nutrition needs of students.</p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 14pt;"><span style="color: #ff0000;">Free and Reduced Price Meals are available to families who believe they may qualify. If your family chooses to apply for FREE/REDUCED price meals, please </span><a title="Free/Reduced Lunch Online Application" href="https://payschoolscentral.com/" target="_blank" rel="noopener"><span style="color: #ff0000;">apply online by clicking here.</span></a></span></strong></p>
+<p>&nbsp;</p>
+<p>For Interactive Menus Google Chrome must be downloaded.</p>
+<p><a href="https://www.google.com/chrome/" target="_blank" rel="noopener"><strong>Google Chrome Download</strong></a></p>
+<p>&nbsp;</p>
+<p style="text-align: center;">&nbsp; &nbsp;</p>
+<p style="text-align: center;">&nbsp;&nbsp;</p>
+<br>
+
+<div class="interactivemenuswrapper">
+
+    
+    <br>
+
+    <!--<font size="4"><b>Downloadable Menus</b></font><br>-->
+
+    <table style="text-align: center; width: 90%; border: 0; margin: 0 auto;">
+        <tr>
+            <td style="width: 33%; vertical-align: top;">
+
+                                    <span class='clickToScroll'>
+                        <a name='clicktoscroll'></a>
+                        Click arrows to scroll through months
+                    </span>
+                    
+            </td>
+            <td style="width: 33%;"></td>
+            <td style="width: 33%;"></td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">
+
+            <div style="text-align: center;">
+        <div class="currentmonth" style="text-align: center;">
+                <h2 style="display: flex; flex-direction: row">
+            <a href="index.php?sid=1533570452221&page=menus&amp;sm=9&amp;sy=2025#clicktoscroll"
+                title="View Sep 2025 Menus">
+                <img src="images/resultset_previous.png" style="border:0;margin-top:3px; height: 22px" alt="Previous Month">
+            </a>
+            <div style="width: 100%; padding: 0 10px; line-height: 1.2; align-items: flex-start">
+        October 2025<br/>Menus
+            </div>
+            <a href="index.php?sid=1533570452221&page=menus&amp;sm=11&amp;sy=2025#clicktoscroll"
+                title="View Nov 2025 Menus">
+                <img src="images/resultset_next.png" style="border:0;margin-top:3px; height: 22px" alt="Next Month">
+            </a>
+        </h2>
+    </div>
+                    <h3 style="text-align: center;">Talawanda Elementary School</h3>
+                            <div style="text-align: left;">
+                <img src="images/world.png" alt="World Icon">  <a href="/downloadMenu.php/1533570452221/808140" target="_blank">Bogan Elementary Breakfast Menu</a><br><img src="images/world.png" alt="World Icon">  <a href="/downloadMenu.php/1533570452221/808228" target="_blank">Bogan Elementary Lunch Menu</a><br><img src="images/world.png" alt="World Icon">  <a href="/downloadMenu.php/1533570452221/809931" target="_blank">Kramer Elementary Breakfast Menu</a><br><img src="images/world.png" alt="World Icon">  <a href="/downloadMenu.php/1533570452221/809935" target="_blank">Kramer Elementary Lunch</a><br><img src="images/world.png" alt="World Icon">  <a href="/downloadMenu.php/1533570452221/808116" target="_blank">Marshall Elem Lunch</a><br><img src="images/world.png" alt="World Icon">  <a href="/downloadMenu.php/1533570452221/808102" target="_blank">Marshall Elementary Breakfast Menu</a><br>            </div>
+                            <h3 style="text-align: center; padding-top:10px">Talawanda Middle School</h3>
+                            <div style="text-align: left;">
+                <img src="images/world.png" alt="World Icon">  <a href="/downloadMenu.php/1533570452221/809890" target="_blank">Talawanda MS Breakfast Menu</a><br><img src="images/world.png" alt="World Icon">  <a href="/downloadMenu.php/1533570452221/808660" target="_blank">Talawanda MS Lunch</a><br>            </div>
+                            <h3 style="text-align: center; padding-top:10px">Talawanda High School</h3>
+                            <div style="text-align: left;">
+                <img src="images/world.png" alt="World Icon">  <a href="/downloadMenu.php/1533570452221/809925" target="_blank">Talawanda HS Breakfast Menu</a><br><img src="images/world.png" alt="World Icon">  <a href="/downloadMenu.php/1533570452221/809944" target="_blank">Talawanda HS Lunch</a><br>            </div>
+            </div>
+</div>
+</td>
+<td style="text-align: center; vertical-align: top">
+    </td>
+<td style="text-align: center; vertical-align: top">
+    <div class="news-and-announcements">
+
+        <div class="harvestofthemonthsection">
+    
+                <h2>Harvest of the Month</h2>
+                <a href="data/pdf/harvestofmonth/oct_en.pdf"
+                   target="_new">October - English</a><br>
+                <a href="data/pdf/harvestofmonth/oct_sp.pdf"
+                   target="_new">October - Spanish</a><br><br>
+                </div><!-- end harvestofthemonthsection -->
+            </div>
+</td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td style="vertical-align: top"></td>
+</tr>
+</table>
+</div>
+                        </div>
+                                        </td>
+                        </tr>
+    </table>
+    &nbsp;
+            <div style="clear:both"></div>
+        </div>
+              </div>
+      <img class="content_bottom" src="images/newlayout_theme1/BodyBottom.png" alt="content_bottom" />
+                    <img class="content_top" src="images/newlayout_theme1/BodyTop.png" alt="content_top" />
+          <div class="main_usda_legal">
+            <div class="usda-legal">
+              <h5>
+  <strong><br />Non-Discrimination Statement</strong>
+</h5>
+<div class="paragraph paragraph--type--wysiwyg paragraph--view-mode--default grid-container">
+  <div class="field__item field-contents">
+    <p>
+      <a
+        title='Link to "And Justice for All" USDA Nondiscrimination Poster'
+        href="https://www.usda.gov/sites/default/files/documents/ad-475a.pdf"
+        target="_blank"
+        rel="noopener"
+        ><img
+          style="float: right; margin: 3px;"
+          src="https://docs.isitesoftware.com/snaf-assets/district/demo-snp/files/March_2025_Updated_And_Justice_for_All_Poster.png"
+          alt="And Justice for All USDA Poster Thumbnail Image with text"
+          width="131"
+          height="204"/></a
+      ><br />
+      In accordance with federal civil rights law and USDA civil rights regulations and policies, the USDA, its
+      agencies, offices, employees, and institutions participating in or administering USDA programs are prohibited from
+      discriminating based on race, color, national origin, religion, sex, disability, age, marital status,
+      family/parental status, income derived from a public assistance program, political beliefs, or reprisal or
+      retaliation for prior civil rights activity, in any program or activity conducted or funded by USDA (not all bases
+      apply to all programs). Remedies and complaint filing deadlines vary by program or incident.
+    </p>
+    <p>
+      Persons with disabilities who require alternative means of communication for program information (e.g., Braille,
+      large print, audiotape, American Sign Language, etc.) should contact the state or local agency that administers
+      the program or contact USDA through the Telecommunications Relay Service at 711 (voice and TTY). Additionally,
+      program information may be made available in languages other than English.
+    </p>
+    <p>
+      To file a program discrimination complaint, complete the USDA Program Discrimination Complaint Form,
+      <a href="https://www.usda.gov/sites/default/files/documents/ad-3027.pdf" target="_blank" rel="noopener">AD-3027</a
+      >, found online at How to File a Program Discrimination Complaint and at any USDA office or write a letter
+      addressed to USDA and provide in the letter all of the information requested in the form. To request a copy of the
+      complaint form, call (866) 632-9992. Submit your completed form or letter to USDA by:
+    </p>
+    <ol>
+      <li>
+        <strong>Mail:</strong> U.S. Department of Agriculture, Office of the Assistant Secretary for Civil Rights, 1400
+        Independence Avenue, SW, Mail Stop 9410, Washington, D.C. 20250-9410;
+      </li>
+      <li><strong>Fax:</strong> (202) 690-7442; or</li>
+      <li><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#96e6e4f9f1e4f7fbb8fff8e2f7fdf3d6e3e5f2f7b8f1f9e0"><span class="__cf_email__" data-cfemail="a3f3d1ccc4d1c2ce8deacdd7c2c8c6e3d6d0c7c28dc4ccd5">[email&#160;protected]</span></a></li>
+    </ol>
+    <p>&nbsp;</p>
+    <p><i>USDA is an equal opportunity provider, employer, and lender.</i></p>
+  </div>
+</div>
+<div class="published-date-container"><span class="published-date">04/17/2025</span></div>
+            </div>
+          </div>
+        <img class="content_bottom" src="images/newlayout_theme1/BodyBottom.png" alt="content_bottom" />
+                </div>
+    <div id="wrapper2">
+            <div id="footer" class="row-fluid clearfix">
+        <div class="span3">
+          <a href="http://www.schoolnutritionnetwork.com/" target="_new"><img src="images/newlayout_theme1/powered_by_snn_white.png" alt="Powered by School Nutrition Network" /></a><br /><br />
+                      <ul>
+            <!--<li><a href="javascript:void(0)" onClick="displayModal('#usda-legal-dlg','show')">USDA Legal Text</a></li>-->
+            <!--<li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>-->
+            <li><a href="http://www.adobe.com/go/getreader/" target="_blank"><img src="images/newlayout_theme1/file_extension_pdf.png" alt="Get Adobe Reader" /> Adobe Reader</a></li>
+            <li><a href="http://www.adobe.com/go/getflashplayer/" target="_blank"><img src="images/newlayout_theme1/file_extension_swf.png" alt="Get Adobe Flash" /> Adobe Flash</a></li>
+          </ul>
+                    </div>
+        <div class="span3">
+          <ul>
+            <!--<li><a href="https://www.talawanda.org/">District Home</a></li>-->
+                        <li><a href="index.php?sid=1533570452221">Home</a></li>
+            <li><a href="index.php?sid=1533570452221&page=menus">Menus</a></li>
+            <li><a href="index.php?sid=1533570452221&page=prepaidacct">Pre-Payment Options</a></li>            <li><a href="index.php?sid=1533570452221&page=nutriandfit">Nutrition &amp; Fitness</a></li>
+            <li><a href="index.php?sid=1533570452221&page=parentstudentteacher">Nutrition Education</a></li>
+            <li><a href="index.php?sid=1533570452221&page=staff">Contact Us</a></li>
+                      </ul>
+        </div>
+        <div class="span3" style="margin-left: 10px; margin-bottom: 25px">
+                  <div class="address-header">Department Address</div>
+          <div class="address-street">131 W. Chestnut St.</div>
+          <div class="address-citystatezip">Oxford, OH 45056</div><br>
+                                  <div class="address-header">District Address</div>
+          <div class="address-street">131 W. Chestnut St.</div>
+          <div class="address-citystatezip">Oxford, OH 45056</div>
+                    </div>
+        <div class="span3">
+                    <ul>
+            <li><a href="index.php?sid=1533570452221&page=wellnesspolicy">Wellness Policy</a></li>
+            <!--<li><a href="javascript:void(0)" onClick="displayModal('#usda-legal-dlg','show')">USDA Legal Text</a></li>-->
+            <!--<li><a href="#">Student Lunch Center</a></li>-->
+            <li><a href="index.php?sid=1533570452221&page=intstaff">Internal Staff Section</a></li>                        <li><a href="index.php?sid=1533570452221&page=automenu">Going Green Email Menus</a></li>            <li><a href="index.php?sid=1533570452221&page=morenutritionlinks">More Nutrition Links</a></li>
+          </ul>
+                  </div>
+
+        
+      </div>
+      <div style="text-align:right;margin:0;padding:0;padding-right:10px;padding-bottom:10px;"><a href="https://www.schoolnutritionandfitness.com/single-sign-on/" accesskey="l"><img src="images/tools.gif" alt="Tools" style="border: 0;"></a></div>
+    </div>
+  </div>
+  <!-- ============================================================
+       ********** Dialogs and Popups **********
+       ============================================================ -->
+  <!-- Translate Dialog -->
+  <div class="modal hide fade in" id="translation-dlg" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <button type="button" class="close" id="translation-dlg-close-x" onClick="$('#translation-dlg').modal('hide');">&times;</button>
+        <h4 class="modal-title"><img src="images/google-translate-logo.png" alt="Translate Site" style="width:50px" /> Translate Site</h4>
+      </div>
+      <div class="modal-body">
+        <div style="text-align:center">
+          <select onChange="doTranslate(this);" id="googleTranslate" title="Select Language">
+  <option value="">Select Language</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Car&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=ar">Arabic</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cbg&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=bg">Bulgarian</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Czh-CN&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=zh-CN">Chinese (Simplified)</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Czh-TW&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=zh-TW">Chinese (Traditional)</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Chr&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=hr">Croatian</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Ccs&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=cs">Czech</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cda&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=da">Danish</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cnl&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=nl">Dutch</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Ctl&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=tl">Filipino</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cfi&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=fi">Finnish</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cfr&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=fr">French</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cde&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=de">German</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cel&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=el">Greek</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Chi&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=hi">Hindi</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cit&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=it">Italian</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cja&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=ja">Japanese</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cko&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=ko">Korean</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cno&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=no">Norwegian</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cps&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=ps">Pashto</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cfa&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=fa">Persian</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cpl&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=pl">Polish</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cpt&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=pt">Portuguese</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cro&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=ro">Romanian</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cru&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=ru">Russian</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Ces&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=es">Spanish</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Csv&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=sv">Swedish</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cuk&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=uk">Ukranian</option>
+  <option value="https://translate.google.com/translate?u=http%3A%2F%2Ftalawandafoodservice.com%2Findex.php%3Fsid%3D1533570452221%26page%3Dmenus&langpair=en%7Cvi&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools&tl=vi">Vietnamese</option>
+</select>
+
+<br />
+
+<p>
+  <img src="images/google-translate_Logo-580x263.png" style="width:200px" alt="Translate Site" title="Translate Site" />
+</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="translation-dlg-close-btn" onClick="$('#translation-dlg').modal('hide');">Close</button>
+      </div>
+    </div>
+  </div>
+  <!-- End of Translate Dialog -->
+  <!-- Facebook Dialog -->
+    <!-- End of Facebook Dialog -->
+  <!-- USDA Legal Dialog -->
+  <div class="modal hide fade in" id="usda-legal-dlg" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <button type="button" class="close" id="usda-legal-dlg-close-x" onClick="$('#usda-legal-dlg').modal('hide');">&times;</button>
+        <h4 class="modal-title">USDA Legal Text</h4>
+      </div>
+      <div class="modal-body">
+        <div class="legal">
+          <h5>
+  <strong><br />Non-Discrimination Statement</strong>
+</h5>
+<div class="paragraph paragraph--type--wysiwyg paragraph--view-mode--default grid-container">
+  <div class="field__item field-contents">
+    <p>
+      <a
+        title='Link to "And Justice for All" USDA Nondiscrimination Poster'
+        href="https://www.usda.gov/sites/default/files/documents/ad-475a.pdf"
+        target="_blank"
+        rel="noopener"
+        ><img
+          style="float: right; margin: 3px;"
+          src="https://docs.isitesoftware.com/snaf-assets/district/demo-snp/files/March_2025_Updated_And_Justice_for_All_Poster.png"
+          alt="And Justice for All USDA Poster Thumbnail Image with text"
+          width="131"
+          height="204"/></a
+      ><br />
+      In accordance with federal civil rights law and USDA civil rights regulations and policies, the USDA, its
+      agencies, offices, employees, and institutions participating in or administering USDA programs are prohibited from
+      discriminating based on race, color, national origin, religion, sex, disability, age, marital status,
+      family/parental status, income derived from a public assistance program, political beliefs, or reprisal or
+      retaliation for prior civil rights activity, in any program or activity conducted or funded by USDA (not all bases
+      apply to all programs). Remedies and complaint filing deadlines vary by program or incident.
+    </p>
+    <p>
+      Persons with disabilities who require alternative means of communication for program information (e.g., Braille,
+      large print, audiotape, American Sign Language, etc.) should contact the state or local agency that administers
+      the program or contact USDA through the Telecommunications Relay Service at 711 (voice and TTY). Additionally,
+      program information may be made available in languages other than English.
+    </p>
+    <p>
+      To file a program discrimination complaint, complete the USDA Program Discrimination Complaint Form,
+      <a href="https://www.usda.gov/sites/default/files/documents/ad-3027.pdf" target="_blank" rel="noopener">AD-3027</a
+      >, found online at How to File a Program Discrimination Complaint and at any USDA office or write a letter
+      addressed to USDA and provide in the letter all of the information requested in the form. To request a copy of the
+      complaint form, call (866) 632-9992. Submit your completed form or letter to USDA by:
+    </p>
+    <ol>
+      <li>
+        <strong>Mail:</strong> U.S. Department of Agriculture, Office of the Assistant Secretary for Civil Rights, 1400
+        Independence Avenue, SW, Mail Stop 9410, Washington, D.C. 20250-9410;
+      </li>
+      <li><strong>Fax:</strong> (202) 690-7442; or</li>
+      <li><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#671715080015060a490e0913060c02271214030649000811"><span class="__cf_email__" data-cfemail="075775686075666a294e6973666c62477274636629606871">[email&#160;protected]</span></a></li>
+    </ol>
+    <p>&nbsp;</p>
+    <p><i>USDA is an equal opportunity provider, employer, and lender.</i></p>
+  </div>
+</div>
+<div class="published-date-container"><span class="published-date">04/17/2025</span></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="usda-legal-dlg-close-btn" onClick="$('#usda-legal-dlg').modal('hide');">Close</button>
+      </div>
+    </div>
+  </div>
+  <!-- End of USDA Legal Dialog -->
+  <!-- NutriMenu Values Dialog -->
+  <div class="modal hide fade in" id="nutrimenu-values-dlg" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <button type="button" class="close" id="nutrimenu-values-dlg-close-x" onClick="$('#nutrimenu-values-dlg').modal('hide');">&times;</button>
+        <h4 class="modal-title">NutriMenu - Nutrition Values</h4>
+      </div>
+      <div class="modal-body">
+        <div id="nutrimenu-values-content">
+          Loading Data
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="nutrimenu-values-dlg-close-btn" onClick="$('#nutrimenu-values-dlg').modal('hide');">Close</button>
+      </div>
+    </div>
+  </div>
+  <!-- End of NutriMenu Values Dialog -->
+  <!-- NutriBoard Values Dialog -->
+  <div class="modal hide fade in" id="nutriboard-values-dlg" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <button type="button" class="close" id="nutriboard-values-dlg-close-x" onClick="$('#nutriboard-values-dlg').modal('hide');">&times;</button>
+        <h4 class="modal-title">NutriBoard</h4>
+      </div>
+      <div class="modal-body">
+        <div id="nutriboard-values-content">
+          Loading Data
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of NutriBoard Values Dialog -->
+  <!-- ============================================================
+       ********** End of Dialogs and Popups **********
+       ============================================================ -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script language="JavaScript" type="text/javascript">
+     loadEvents();
+  </script>
+
+  <script>
+    jQuery.get('/trackPageView.php?sid=1533570452221')
+</script>  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)">.</button>
+
+                <button class="pswp__button pswp__button--share" title="Share">.</button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen">.</button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out">.</button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">.
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">.
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+</div></body>
+</html>

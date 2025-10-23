@@ -1,0 +1,1708 @@
+{
+  "_id": {
+    "$id": "62eaf1787057ec305d5532cb"
+  },
+  "name": "Kramer Elementary Lunch",
+  "SID": "1533570452221",
+  "settings": {
+    "publish_mobile": true,
+    "publish_website": true,
+    "format_webmenu": false,
+    "format_design": true,
+    "publish_onlineordering": false,
+    "publish_digitalboards": false,
+    "publish_goinggreen": false
+  },
+  "site_codes": [
+    4657,
+    5977
+  ],
+  "site_codes2": [
+    10891
+  ],
+  "site_paths": [
+    "/5977/",
+    "/4657/10891/"
+  ],
+  "menus": [
+    {
+      "_id": {
+        "$id": "663a68d5e96f1e77259d3255"
+      },
+      "year": 2024,
+      "month": 7,
+      "weekLength": 5,
+      "menu_type": "62eaf1787057ec305d5532cb",
+      "template": "calendar",
+      "wrapping": true,
+      "sid": "1552661568199",
+      "time_created": 1715103957,
+      "time_last_modified": 1715623254,
+      "isCycle": false,
+      "previousMonthPublished": {
+        "id": "66103992e96f1e5ba9beece8"
+      },
+      "nextMonthPublished": null,
+      "menuType": {
+        "id": "62eaf1787057ec305d5532cb",
+        "name": "Kramer Elementary Lunch",
+        "formats": [
+          "design",
+          "mobile"
+        ],
+        "listMenuIDs": null,
+        "sitePaths": [
+          {
+            "sites": [
+              {
+                "id": "4657",
+                "name": "Talawanda Elementary School"
+              },
+              {
+                "id": "10891",
+                "name": "Kramer Elementary School"
+              }
+            ]
+          }
+        ]
+      },
+      "OnlineMenuDesignSettings": {
+        "customAllergens": null,
+        "mealsPlusCustomAllergens": [],
+        "mealsPlusCustomAttributes": [],
+        "nutrientsDisabled": [
+          "iron",
+          "calcium",
+          "vitaminC",
+          "vitaminARE",
+          "vitaminA"
+        ],
+        "allergenFilterEnabled": true,
+        "showPriceOnPopovers": null,
+        "disableAllergen": [
+          "allergen_dairy",
+          "allergen_gluten",
+          "allergen_pork",
+          "allergen_vegetarian"
+        ],
+        "showAllergens": true,
+        "sid": "1552661568199",
+        "disableNutritionReportCard": false,
+        "categoryToBold": [
+          "Entrees",
+          "Ancillary"
+        ],
+        "onlineMealAppEnabled": null,
+        "onlineMealAppGraphic": null,
+        "onlineMealAppUrl": null,
+        "onlinePaymentProviderEnabled": null,
+        "onlinePaymentProviderGraphic": null,
+        "onlinePaymentProviderUrl": null,
+        "showAllergenIconOnMenu": [],
+        "web_menu_view_header_image_url": null,
+        "automaticItemSorting": null,
+        "hideCategoryHeaders": null,
+        "disableChainedSelects": null,
+        "dropdownMenuExcludeSchools": null,
+        "hideAllergensInNutritionReportCard": false,
+        "ratingDisableComments": null,
+        "disableTranslateWidget": null
+      },
+      "weeksForCycle": null,
+      "id": "663a68d5e96f1e77259d3255",
+      "days": [],
+      "settings": {
+        "designViewCalendarBgOpacity": 0.95,
+        "publish_mobile": true,
+        "publish_website": true,
+        "format_webmenu": false,
+        "format_design": true,
+        "publish_onlineordering": false,
+        "publish_digitalboards": false,
+        "publish_goinggreen": false,
+        "listViewMode": "nutrient_table",
+        "disableAutoListView": false,
+        "calendarRight": "6",
+        "publish_website_non_design": false,
+        "designViewCalendarBgOpacity100": 95,
+        "published": true
+      },
+      "lastSaved": 1715623254,
+      "cachedFontSize": 1.3,
+      "site_codes2": [
+        10891
+      ],
+      "site_codes": [
+        4657
+      ],
+      "site_paths": [
+        "/4657/10891/"
+      ],
+      "bg": "https://docs.isitesoftware.com/webmenus-images/backgrounds/School%20Meal%20Tray%20I"
+    },
+    {
+      "_id": {
+        "$id": "66956f26e96f1ebb5f594237"
+      },
+      "year": 2024,
+      "month": 8,
+      "weekLength": 5,
+      "menu_type": "62eaf1787057ec305d5532cb",
+      "template": "calendar",
+      "wrapping": true,
+      "sid": "1552661568199",
+      "time_created": 1721069350,
+      "time_last_modified": 1726077222,
+      "isCycle": false,
+      "previousMonthPublished": {
+        "id": "663a68d5e96f1e77259d3255"
+      },
+      "nextMonthPublished": null,
+      "menuType": {
+        "id": "62eaf1787057ec305d5532cb",
+        "name": "Kramer Elementary Lunch",
+        "formats": [
+          "design",
+          "mobile"
+        ],
+        "listMenuIDs": null,
+        "sitePaths": [
+          {
+            "sites": [
+              {
+                "id": "4657",
+                "name": "Talawanda Elementary School"
+              },
+              {
+                "id": "10891",
+                "name": "Kramer Elementary School"
+              }
+            ]
+          }
+        ]
+      },
+      "OnlineMenuDesignSettings": {
+        "customAllergens": null,
+        "mealsPlusCustomAllergens": [],
+        "mealsPlusCustomAttributes": [],
+        "nutrientsDisabled": [
+          "iron",
+          "calcium",
+          "vitaminC",
+          "vitaminARE",
+          "vitaminA"
+        ],
+        "allergenFilterEnabled": true,
+        "showPriceOnPopovers": null,
+        "disableAllergen": [
+          "allergen_dairy",
+          "allergen_gluten",
+          "allergen_pork",
+          "allergen_vegetarian"
+        ],
+        "showAllergens": true,
+        "sid": "1552661568199",
+        "disableNutritionReportCard": false,
+        "categoryToBold": [
+          "Entrees",
+          "Ancillary"
+        ],
+        "onlineMealAppEnabled": null,
+        "onlineMealAppGraphic": null,
+        "onlineMealAppUrl": null,
+        "onlinePaymentProviderEnabled": null,
+        "onlinePaymentProviderGraphic": null,
+        "onlinePaymentProviderUrl": null,
+        "showAllergenIconOnMenu": [],
+        "web_menu_view_header_image_url": null,
+        "automaticItemSorting": null,
+        "hideCategoryHeaders": null,
+        "disableChainedSelects": null,
+        "dropdownMenuExcludeSchools": null,
+        "hideAllergensInNutritionReportCard": false,
+        "ratingDisableComments": null,
+        "disableTranslateWidget": null
+      },
+      "weeksForCycle": null,
+      "id": "66956f26e96f1ebb5f594237",
+      "days": [],
+      "settings": {
+        "designViewCalendarBgOpacity": 0.95,
+        "publish_mobile": true,
+        "publish_website": true,
+        "format_webmenu": false,
+        "format_design": true,
+        "publish_onlineordering": false,
+        "publish_digitalboards": false,
+        "publish_goinggreen": false,
+        "listViewMode": "nutrient_table",
+        "disableAutoListView": false,
+        "designViewCalendarBgOpacity100": 95,
+        "calendarRight": "6",
+        "publish_website_non_design": false,
+        "published": true
+      },
+      "cachedFontSize": 1.3,
+      "lastSaved": 1726077222,
+      "site_codes2": [
+        10891
+      ],
+      "site_codes": [
+        4657
+      ],
+      "site_paths": [
+        "/4657/10891/"
+      ],
+      "bg": "https://docs.isitesoftware.com/webmenus-images/backgrounds/Bckgrnd_6"
+    },
+    {
+      "_id": {
+        "$id": "66d9b5fde96f1e39f4a08efb"
+      },
+      "year": 2024,
+      "month": 9,
+      "weekLength": 5,
+      "menu_type": "62eaf1787057ec305d5532cb",
+      "template": "calendar",
+      "wrapping": true,
+      "sid": "1552661568199",
+      "time_created": 1725543933,
+      "time_last_modified": 1728477026,
+      "isCycle": false,
+      "previousMonthPublished": {
+        "id": "66956f26e96f1ebb5f594237"
+      },
+      "nextMonthPublished": null,
+      "menuType": {
+        "id": "62eaf1787057ec305d5532cb",
+        "name": "Kramer Elementary Lunch",
+        "formats": [
+          "design",
+          "mobile"
+        ],
+        "listMenuIDs": null,
+        "sitePaths": [
+          {
+            "sites": [
+              {
+                "id": "4657",
+                "name": "Talawanda Elementary School"
+              },
+              {
+                "id": "10891",
+                "name": "Kramer Elementary School"
+              }
+            ]
+          }
+        ]
+      },
+      "OnlineMenuDesignSettings": {
+        "customAllergens": null,
+        "mealsPlusCustomAllergens": [],
+        "mealsPlusCustomAttributes": [],
+        "nutrientsDisabled": [
+          "iron",
+          "calcium",
+          "vitaminC",
+          "vitaminARE",
+          "vitaminA"
+        ],
+        "allergenFilterEnabled": true,
+        "showPriceOnPopovers": null,
+        "disableAllergen": [
+          "allergen_dairy",
+          "allergen_gluten",
+          "allergen_pork",
+          "allergen_vegetarian"
+        ],
+        "showAllergens": true,
+        "sid": "1552661568199",
+        "disableNutritionReportCard": false,
+        "categoryToBold": [
+          "Entrees",
+          "Ancillary"
+        ],
+        "onlineMealAppEnabled": null,
+        "onlineMealAppGraphic": null,
+        "onlineMealAppUrl": null,
+        "onlinePaymentProviderEnabled": null,
+        "onlinePaymentProviderGraphic": null,
+        "onlinePaymentProviderUrl": null,
+        "showAllergenIconOnMenu": [],
+        "web_menu_view_header_image_url": null,
+        "automaticItemSorting": null,
+        "hideCategoryHeaders": null,
+        "disableChainedSelects": null,
+        "dropdownMenuExcludeSchools": null,
+        "hideAllergensInNutritionReportCard": false,
+        "ratingDisableComments": null,
+        "disableTranslateWidget": null
+      },
+      "weeksForCycle": null,
+      "id": "66d9b5fde96f1e39f4a08efb",
+      "days": [],
+      "settings": {
+        "designViewCalendarBgOpacity": 0.95,
+        "publish_mobile": true,
+        "publish_website": true,
+        "format_webmenu": false,
+        "format_design": true,
+        "publish_onlineordering": false,
+        "publish_digitalboards": false,
+        "publish_goinggreen": false,
+        "listViewMode": "nutrient_table",
+        "disableAutoListView": false,
+        "designViewCalendarBgOpacity100": 95,
+        "calendarRight": "6",
+        "publish_website_non_design": false,
+        "published": true
+      },
+      "cachedFontSize": 1,
+      "lastSaved": 1728477027,
+      "site_codes2": [
+        10891
+      ],
+      "site_codes": [
+        4657
+      ],
+      "site_paths": [
+        "/4657/10891/"
+      ],
+      "bg": "https://docs.isitesoftware.com/webmenus-images/background/seasonal/Fall_4.png"
+    },
+    {
+      "_id": {
+        "$id": "66ffff44e96f1e1659d6dbf8"
+      },
+      "year": 2024,
+      "month": 10,
+      "weekLength": 5,
+      "menu_type": "62eaf1787057ec305d5532cb",
+      "template": "calendar",
+      "wrapping": true,
+      "sid": "1552661568199",
+      "time_created": 1728053060,
+      "time_last_modified": 1731081758,
+      "isCycle": false,
+      "previousMonthPublished": {
+        "id": "66d9b5fde96f1e39f4a08efb"
+      },
+      "nextMonthPublished": null,
+      "menuType": {
+        "id": "62eaf1787057ec305d5532cb",
+        "name": "Kramer Elementary Lunch",
+        "formats": [
+          "design",
+          "mobile"
+        ],
+        "listMenuIDs": null,
+        "sitePaths": [
+          {
+            "sites": [
+              {
+                "id": "4657",
+                "name": "Talawanda Elementary School"
+              },
+              {
+                "id": "10891",
+                "name": "Kramer Elementary School"
+              }
+            ]
+          }
+        ]
+      },
+      "OnlineMenuDesignSettings": {
+        "customAllergens": null,
+        "mealsPlusCustomAllergens": [],
+        "mealsPlusCustomAttributes": [],
+        "nutrientsDisabled": [
+          "iron",
+          "calcium",
+          "vitaminC",
+          "vitaminARE",
+          "vitaminA"
+        ],
+        "allergenFilterEnabled": true,
+        "showPriceOnPopovers": null,
+        "disableAllergen": [
+          "allergen_dairy",
+          "allergen_gluten",
+          "allergen_pork",
+          "allergen_vegetarian"
+        ],
+        "showAllergens": true,
+        "sid": "1552661568199",
+        "disableNutritionReportCard": false,
+        "categoryToBold": [
+          "Entrees",
+          "Ancillary"
+        ],
+        "onlineMealAppEnabled": null,
+        "onlineMealAppGraphic": null,
+        "onlineMealAppUrl": null,
+        "onlinePaymentProviderEnabled": null,
+        "onlinePaymentProviderGraphic": null,
+        "onlinePaymentProviderUrl": null,
+        "showAllergenIconOnMenu": [],
+        "web_menu_view_header_image_url": null,
+        "automaticItemSorting": null,
+        "hideCategoryHeaders": null,
+        "disableChainedSelects": null,
+        "dropdownMenuExcludeSchools": null,
+        "hideAllergensInNutritionReportCard": false,
+        "ratingDisableComments": null,
+        "disableTranslateWidget": null
+      },
+      "weeksForCycle": null,
+      "id": "66ffff44e96f1e1659d6dbf8",
+      "days": [],
+      "settings": {
+        "designViewCalendarBgOpacity": 0.95,
+        "publish_mobile": true,
+        "publish_website": true,
+        "format_webmenu": false,
+        "format_design": true,
+        "publish_onlineordering": false,
+        "publish_digitalboards": false,
+        "publish_goinggreen": false,
+        "listViewMode": "nutrient_table",
+        "disableAutoListView": false,
+        "designViewCalendarBgOpacity100": 95,
+        "calendarRight": "6",
+        "publish_website_non_design": false,
+        "published": true
+      },
+      "cachedFontSize": 1.3,
+      "lastSaved": 1731081760,
+      "site_codes2": [
+        10891
+      ],
+      "site_codes": [
+        4657
+      ],
+      "site_paths": [
+        "/4657/10891/"
+      ],
+      "bg": "https://docs.isitesoftware.com/webmenus-images/backgrounds/Bckgrnd_110"
+    },
+    {
+      "_id": {
+        "$id": "67227f46e96f1ee2f310aaad"
+      },
+      "year": 2024,
+      "month": 11,
+      "weekLength": 5,
+      "menu_type": "62eaf1787057ec305d5532cb",
+      "template": "calendar",
+      "wrapping": true,
+      "sid": "1552661568199",
+      "time_created": 1730314054,
+      "time_last_modified": 1734109524,
+      "isCycle": false,
+      "previousMonthPublished": {
+        "id": "66ffff44e96f1e1659d6dbf8"
+      },
+      "nextMonthPublished": null,
+      "menuType": {
+        "id": "62eaf1787057ec305d5532cb",
+        "name": "Kramer Elementary Lunch",
+        "formats": [
+          "design",
+          "mobile"
+        ],
+        "listMenuIDs": null,
+        "sitePaths": [
+          {
+            "sites": [
+              {
+                "id": "4657",
+                "name": "Talawanda Elementary School"
+              },
+              {
+                "id": "10891",
+                "name": "Kramer Elementary School"
+              }
+            ]
+          }
+        ]
+      },
+      "OnlineMenuDesignSettings": {
+        "customAllergens": null,
+        "mealsPlusCustomAllergens": [],
+        "mealsPlusCustomAttributes": [],
+        "nutrientsDisabled": [
+          "iron",
+          "calcium",
+          "vitaminC",
+          "vitaminARE",
+          "vitaminA"
+        ],
+        "allergenFilterEnabled": true,
+        "showPriceOnPopovers": null,
+        "disableAllergen": [
+          "allergen_dairy",
+          "allergen_gluten",
+          "allergen_pork",
+          "allergen_vegetarian"
+        ],
+        "showAllergens": true,
+        "sid": "1552661568199",
+        "disableNutritionReportCard": false,
+        "categoryToBold": [
+          "Entrees",
+          "Ancillary"
+        ],
+        "onlineMealAppEnabled": null,
+        "onlineMealAppGraphic": null,
+        "onlineMealAppUrl": null,
+        "onlinePaymentProviderEnabled": null,
+        "onlinePaymentProviderGraphic": null,
+        "onlinePaymentProviderUrl": null,
+        "showAllergenIconOnMenu": [],
+        "web_menu_view_header_image_url": null,
+        "automaticItemSorting": null,
+        "hideCategoryHeaders": null,
+        "disableChainedSelects": null,
+        "dropdownMenuExcludeSchools": null,
+        "hideAllergensInNutritionReportCard": false,
+        "ratingDisableComments": null,
+        "disableTranslateWidget": null
+      },
+      "weeksForCycle": null,
+      "id": "67227f46e96f1ee2f310aaad",
+      "days": [],
+      "settings": {
+        "designViewCalendarBgOpacity": 0.95,
+        "publish_mobile": true,
+        "publish_website": true,
+        "format_webmenu": false,
+        "format_design": true,
+        "publish_onlineordering": false,
+        "publish_digitalboards": false,
+        "publish_goinggreen": false,
+        "listViewMode": "nutrient_table",
+        "disableAutoListView": false,
+        "designViewCalendarBgOpacity100": 95,
+        "calendarRight": "6",
+        "publish_website_non_design": false,
+        "published": true
+      },
+      "cachedFontSize": 1.3,
+      "lastSaved": 1734109524,
+      "site_codes2": [
+        10891
+      ],
+      "site_codes": [
+        4657
+      ],
+      "site_paths": [
+        "/4657/10891/"
+      ],
+      "bg": "https://docs.isitesoftware.com/webmenus-images/backgrounds/OMD---Green-Holiday-Background"
+    },
+    {
+      "_id": {
+        "$id": "67449b0ae96f1e2dfdb9c75d"
+      },
+      "year": 2025,
+      "month": 0,
+      "weekLength": 5,
+      "menu_type": "62eaf1787057ec305d5532cb",
+      "template": "calendar",
+      "wrapping": true,
+      "sid": "1552661568199",
+      "time_created": 1732549386,
+      "time_last_modified": 1734114835,
+      "isCycle": false,
+      "previousMonthPublished": {
+        "id": "67227f46e96f1ee2f310aaad"
+      },
+      "nextMonthPublished": null,
+      "menuType": {
+        "id": "62eaf1787057ec305d5532cb",
+        "name": "Kramer Elementary Lunch",
+        "formats": [
+          "design",
+          "mobile"
+        ],
+        "listMenuIDs": null,
+        "sitePaths": [
+          {
+            "sites": [
+              {
+                "id": "4657",
+                "name": "Talawanda Elementary School"
+              },
+              {
+                "id": "10891",
+                "name": "Kramer Elementary School"
+              }
+            ]
+          }
+        ]
+      },
+      "OnlineMenuDesignSettings": {
+        "customAllergens": null,
+        "mealsPlusCustomAllergens": [],
+        "mealsPlusCustomAttributes": [],
+        "nutrientsDisabled": [
+          "iron",
+          "calcium",
+          "vitaminC",
+          "vitaminARE",
+          "vitaminA"
+        ],
+        "allergenFilterEnabled": true,
+        "showPriceOnPopovers": null,
+        "disableAllergen": [
+          "allergen_dairy",
+          "allergen_gluten",
+          "allergen_pork",
+          "allergen_vegetarian"
+        ],
+        "showAllergens": true,
+        "sid": "1552661568199",
+        "disableNutritionReportCard": false,
+        "categoryToBold": [
+          "Entrees",
+          "Ancillary"
+        ],
+        "onlineMealAppEnabled": null,
+        "onlineMealAppGraphic": null,
+        "onlineMealAppUrl": null,
+        "onlinePaymentProviderEnabled": null,
+        "onlinePaymentProviderGraphic": null,
+        "onlinePaymentProviderUrl": null,
+        "showAllergenIconOnMenu": [],
+        "web_menu_view_header_image_url": null,
+        "automaticItemSorting": null,
+        "hideCategoryHeaders": null,
+        "disableChainedSelects": null,
+        "dropdownMenuExcludeSchools": null,
+        "hideAllergensInNutritionReportCard": false,
+        "ratingDisableComments": null,
+        "disableTranslateWidget": null
+      },
+      "weeksForCycle": null,
+      "id": "67449b0ae96f1e2dfdb9c75d",
+      "days": [],
+      "settings": {
+        "designViewCalendarBgOpacity": 0.95,
+        "publish_mobile": true,
+        "publish_website": true,
+        "format_webmenu": false,
+        "format_design": true,
+        "publish_onlineordering": false,
+        "publish_digitalboards": false,
+        "publish_goinggreen": false,
+        "listViewMode": "nutrient_table",
+        "disableAutoListView": false,
+        "designViewCalendarBgOpacity100": 95,
+        "calendarRight": "6",
+        "publish_website_non_design": false,
+        "published": true
+      },
+      "lastSaved": 1734114836,
+      "cachedFontSize": 1.3,
+      "site_codes2": [
+        10891
+      ],
+      "site_codes": [
+        4657
+      ],
+      "site_paths": [
+        "/4657/10891/"
+      ],
+      "bg": "https://docs.isitesoftware.com/webmenus-images/backgrounds/Bckgrnd_36"
+    },
+    {
+      "_id": {
+        "$id": "676ecbfbe96f1e5b13a2ae43"
+      },
+      "year": 2025,
+      "month": 1,
+      "weekLength": 5,
+      "menu_type": "62eaf1787057ec305d5532cb",
+      "template": "calendar",
+      "wrapping": true,
+      "sid": "1552661568199",
+      "time_created": 1735314427,
+      "time_last_modified": 1737656436,
+      "isCycle": false,
+      "previousMonthPublished": {
+        "id": "67449b0ae96f1e2dfdb9c75d"
+      },
+      "nextMonthPublished": null,
+      "menuType": {
+        "id": "62eaf1787057ec305d5532cb",
+        "name": "Kramer Elementary Lunch",
+        "formats": [
+          "design",
+          "mobile"
+        ],
+        "listMenuIDs": null,
+        "sitePaths": [
+          {
+            "sites": [
+              {
+                "id": "4657",
+                "name": "Talawanda Elementary School"
+              },
+              {
+                "id": "10891",
+                "name": "Kramer Elementary School"
+              }
+            ]
+          }
+        ]
+      },
+      "OnlineMenuDesignSettings": {
+        "customAllergens": null,
+        "mealsPlusCustomAllergens": [],
+        "mealsPlusCustomAttributes": [],
+        "nutrientsDisabled": [
+          "iron",
+          "calcium",
+          "vitaminC",
+          "vitaminARE",
+          "vitaminA"
+        ],
+        "allergenFilterEnabled": true,
+        "showPriceOnPopovers": null,
+        "disableAllergen": [
+          "allergen_dairy",
+          "allergen_gluten",
+          "allergen_pork",
+          "allergen_vegetarian"
+        ],
+        "showAllergens": true,
+        "sid": "1552661568199",
+        "disableNutritionReportCard": false,
+        "categoryToBold": [
+          "Entrees",
+          "Ancillary"
+        ],
+        "onlineMealAppEnabled": null,
+        "onlineMealAppGraphic": null,
+        "onlineMealAppUrl": null,
+        "onlinePaymentProviderEnabled": null,
+        "onlinePaymentProviderGraphic": null,
+        "onlinePaymentProviderUrl": null,
+        "showAllergenIconOnMenu": [],
+        "web_menu_view_header_image_url": null,
+        "automaticItemSorting": null,
+        "hideCategoryHeaders": null,
+        "disableChainedSelects": null,
+        "dropdownMenuExcludeSchools": null,
+        "hideAllergensInNutritionReportCard": false,
+        "ratingDisableComments": null,
+        "disableTranslateWidget": null
+      },
+      "weeksForCycle": null,
+      "id": "676ecbfbe96f1e5b13a2ae43",
+      "days": [],
+      "settings": {
+        "designViewCalendarBgOpacity": 0.95,
+        "publish_mobile": true,
+        "publish_website": true,
+        "format_webmenu": false,
+        "format_design": true,
+        "publish_onlineordering": false,
+        "publish_digitalboards": false,
+        "publish_goinggreen": false,
+        "listViewMode": "nutrient_table",
+        "disableAutoListView": false,
+        "designViewCalendarBgOpacity100": 95,
+        "calendarRight": "6",
+        "publish_website_non_design": false,
+        "published": true
+      },
+      "lastSaved": 1737656438,
+      "cachedFontSize": 1.3,
+      "site_codes2": [
+        10891
+      ],
+      "site_codes": [
+        4657
+      ],
+      "site_paths": [
+        "/4657/10891/"
+      ],
+      "bg": "https://docs.isitesoftware.com/webmenus-images/background/seasonal/February.jpg"
+    },
+    {
+      "_id": {
+        "$id": "679ce41fd0101f00a340b0b7"
+      },
+      "year": 2025,
+      "month": 2,
+      "weekLength": 5,
+      "menu_type": "62eaf1787057ec305d5532cb",
+      "template": "calendar",
+      "wrapping": true,
+      "sid": "1552661568199",
+      "time_created": 1738335263,
+      "time_last_modified": 1739376914,
+      "isCycle": false,
+      "previousMonthPublished": {
+        "id": "676ecbfbe96f1e5b13a2ae43"
+      },
+      "nextMonthPublished": null,
+      "menuType": {
+        "id": "62eaf1787057ec305d5532cb",
+        "name": "Kramer Elementary Lunch",
+        "formats": [
+          "design",
+          "mobile"
+        ],
+        "listMenuIDs": null,
+        "sitePaths": [
+          {
+            "sites": [
+              {
+                "id": "5977",
+                "name": "Elementary School"
+              }
+            ]
+          },
+          {
+            "sites": [
+              {
+                "id": "4657",
+                "name": "Talawanda Elementary School"
+              },
+              {
+                "id": "10891",
+                "name": "Kramer Elementary School"
+              }
+            ]
+          }
+        ]
+      },
+      "OnlineMenuDesignSettings": {
+        "customAllergens": null,
+        "mealsPlusCustomAllergens": [],
+        "mealsPlusCustomAttributes": [],
+        "nutrientsDisabled": [
+          "iron",
+          "calcium",
+          "vitaminC",
+          "vitaminARE",
+          "vitaminA"
+        ],
+        "allergenFilterEnabled": true,
+        "showPriceOnPopovers": null,
+        "disableAllergen": [
+          "allergen_dairy",
+          "allergen_gluten",
+          "allergen_pork",
+          "allergen_vegetarian"
+        ],
+        "showAllergens": true,
+        "sid": "1552661568199",
+        "disableNutritionReportCard": false,
+        "categoryToBold": [
+          "Entrees",
+          "Ancillary"
+        ],
+        "onlineMealAppEnabled": null,
+        "onlineMealAppGraphic": null,
+        "onlineMealAppUrl": null,
+        "onlinePaymentProviderEnabled": null,
+        "onlinePaymentProviderGraphic": null,
+        "onlinePaymentProviderUrl": null,
+        "showAllergenIconOnMenu": [],
+        "web_menu_view_header_image_url": null,
+        "automaticItemSorting": null,
+        "hideCategoryHeaders": null,
+        "disableChainedSelects": null,
+        "dropdownMenuExcludeSchools": null,
+        "hideAllergensInNutritionReportCard": false,
+        "ratingDisableComments": null,
+        "disableTranslateWidget": null
+      },
+      "weeksForCycle": null,
+      "id": "679ce41fd0101f00a340b0b7",
+      "days": [],
+      "settings": {
+        "designViewCalendarBgOpacity": 0.95,
+        "publish_mobile": true,
+        "publish_website": true,
+        "format_webmenu": false,
+        "format_design": true,
+        "publish_onlineordering": false,
+        "publish_digitalboards": false,
+        "publish_goinggreen": false,
+        "listViewMode": "nutrient_table",
+        "disableAutoListView": false,
+        "designViewCalendarBgOpacity100": 95,
+        "calendarRight": "6",
+        "publish_website_non_design": false,
+        "published": true
+      },
+      "lastSaved": 1739376921,
+      "cachedFontSize": 1,
+      "site_codes2": [
+        10891
+      ],
+      "site_codes": [
+        4657,
+        5977
+      ],
+      "site_paths": [
+        "/5977/",
+        "/4657/10891/"
+      ],
+      "bg": "https://docs.isitesoftware.com/webmenus-images/background/seasonal/March.jpg"
+    },
+    {
+      "_id": {
+        "$id": "67c9e8a929c75d3437417c95"
+      },
+      "year": 2025,
+      "month": 3,
+      "weekLength": 5,
+      "menu_type": "62eaf1787057ec305d5532cb",
+      "template": "calendar",
+      "wrapping": true,
+      "sid": "1552661568199",
+      "time_created": 1741285545,
+      "time_last_modified": 1741801490,
+      "isCycle": false,
+      "previousMonthPublished": {
+        "id": "679ce41fd0101f00a340b0b7"
+      },
+      "nextMonthPublished": null,
+      "menuType": {
+        "id": "62eaf1787057ec305d5532cb",
+        "name": "Kramer Elementary Lunch",
+        "formats": [
+          "design",
+          "mobile"
+        ],
+        "listMenuIDs": null,
+        "sitePaths": [
+          {
+            "sites": [
+              {
+                "id": "5977",
+                "name": "Elementary School"
+              }
+            ]
+          },
+          {
+            "sites": [
+              {
+                "id": "4657",
+                "name": "Talawanda Elementary School"
+              },
+              {
+                "id": "10891",
+                "name": "Kramer Elementary School"
+              }
+            ]
+          }
+        ]
+      },
+      "OnlineMenuDesignSettings": {
+        "customAllergens": null,
+        "mealsPlusCustomAllergens": [],
+        "mealsPlusCustomAttributes": [],
+        "nutrientsDisabled": [
+          "iron",
+          "calcium",
+          "vitaminC",
+          "vitaminARE",
+          "vitaminA"
+        ],
+        "allergenFilterEnabled": true,
+        "showPriceOnPopovers": null,
+        "disableAllergen": [
+          "allergen_dairy",
+          "allergen_gluten",
+          "allergen_pork",
+          "allergen_vegetarian"
+        ],
+        "showAllergens": true,
+        "sid": "1552661568199",
+        "disableNutritionReportCard": false,
+        "categoryToBold": [
+          "Entrees",
+          "Ancillary"
+        ],
+        "onlineMealAppEnabled": null,
+        "onlineMealAppGraphic": null,
+        "onlineMealAppUrl": null,
+        "onlinePaymentProviderEnabled": null,
+        "onlinePaymentProviderGraphic": null,
+        "onlinePaymentProviderUrl": null,
+        "showAllergenIconOnMenu": [],
+        "web_menu_view_header_image_url": null,
+        "automaticItemSorting": null,
+        "hideCategoryHeaders": null,
+        "disableChainedSelects": null,
+        "dropdownMenuExcludeSchools": null,
+        "hideAllergensInNutritionReportCard": false,
+        "ratingDisableComments": null,
+        "disableTranslateWidget": null
+      },
+      "weeksForCycle": null,
+      "id": "67c9e8a929c75d3437417c95",
+      "days": [],
+      "settings": {
+        "designViewCalendarBgOpacity": 0.95,
+        "publish_mobile": true,
+        "publish_website": true,
+        "format_webmenu": false,
+        "format_design": true,
+        "publish_onlineordering": false,
+        "publish_digitalboards": false,
+        "publish_goinggreen": false,
+        "listViewMode": "nutrient_table",
+        "disableAutoListView": false,
+        "designViewCalendarBgOpacity100": 95,
+        "calendarRight": "6",
+        "publish_website_non_design": false,
+        "published": true
+      },
+      "lastSaved": 1741801489,
+      "cachedFontSize": 1.2,
+      "site_codes2": [
+        10891
+      ],
+      "site_codes": [
+        4657,
+        5977
+      ],
+      "site_paths": [
+        "/5977/",
+        "/4657/10891/"
+      ],
+      "bg": "https://docs.isitesoftware.com/webmenus-images/background/seasonal/Spring_1.png"
+    },
+    {
+      "_id": {
+        "$id": "67eada5ab2e62970ed20ca0b"
+      },
+      "year": 2025,
+      "month": 4,
+      "weekLength": 5,
+      "menu_type": "62eaf1787057ec305d5532cb",
+      "template": "calendar",
+      "wrapping": true,
+      "sid": "1552661568199",
+      "time_created": 1743444570,
+      "time_last_modified": 1745251447,
+      "isCycle": false,
+      "previousMonthPublished": {
+        "id": "67c9e8a929c75d3437417c95"
+      },
+      "nextMonthPublished": null,
+      "menuType": {
+        "id": "62eaf1787057ec305d5532cb",
+        "name": "Kramer Elementary Lunch",
+        "formats": [
+          "design",
+          "mobile"
+        ],
+        "listMenuIDs": null,
+        "sitePaths": [
+          {
+            "sites": [
+              {
+                "id": "5977",
+                "name": "Elementary School"
+              }
+            ]
+          },
+          {
+            "sites": [
+              {
+                "id": "4657",
+                "name": "Talawanda Elementary School"
+              },
+              {
+                "id": "10891",
+                "name": "Kramer Elementary School"
+              }
+            ]
+          }
+        ]
+      },
+      "OnlineMenuDesignSettings": {
+        "customAllergens": null,
+        "mealsPlusCustomAllergens": [],
+        "mealsPlusCustomAttributes": [],
+        "nutrientsDisabled": [
+          "iron",
+          "calcium",
+          "vitaminC",
+          "vitaminARE",
+          "vitaminA"
+        ],
+        "allergenFilterEnabled": true,
+        "showPriceOnPopovers": null,
+        "disableAllergen": [
+          "allergen_dairy",
+          "allergen_gluten",
+          "allergen_pork",
+          "allergen_vegetarian"
+        ],
+        "showAllergens": true,
+        "sid": "1552661568199",
+        "disableNutritionReportCard": false,
+        "categoryToBold": [
+          "Entrees",
+          "Ancillary"
+        ],
+        "onlineMealAppEnabled": null,
+        "onlineMealAppGraphic": null,
+        "onlineMealAppUrl": null,
+        "onlinePaymentProviderEnabled": null,
+        "onlinePaymentProviderGraphic": null,
+        "onlinePaymentProviderUrl": null,
+        "showAllergenIconOnMenu": [],
+        "web_menu_view_header_image_url": null,
+        "automaticItemSorting": null,
+        "hideCategoryHeaders": null,
+        "disableChainedSelects": null,
+        "dropdownMenuExcludeSchools": null,
+        "hideAllergensInNutritionReportCard": false,
+        "ratingDisableComments": null,
+        "disableTranslateWidget": null
+      },
+      "weeksForCycle": null,
+      "id": "67eada5ab2e62970ed20ca0b",
+      "days": [],
+      "settings": {
+        "designViewCalendarBgOpacity": 0.95,
+        "publish_mobile": true,
+        "publish_website": true,
+        "format_webmenu": false,
+        "format_design": true,
+        "publish_onlineordering": false,
+        "publish_digitalboards": false,
+        "publish_goinggreen": false,
+        "listViewMode": "nutrient_table",
+        "disableAutoListView": false,
+        "designViewCalendarBgOpacity100": 95,
+        "calendarRight": "6",
+        "publish_website_non_design": false,
+        "published": true
+      },
+      "lastSaved": 1745251446,
+      "cachedFontSize": 1.2,
+      "site_codes2": [
+        10891
+      ],
+      "site_codes": [
+        4657,
+        5977
+      ],
+      "site_paths": [
+        "/5977/",
+        "/4657/10891/"
+      ],
+      "bg": "https://docs.isitesoftware.com/webmenus-images/background/seasonal/Summer_1a.png"
+    },
+    {
+      "_id": {
+        "$id": "681b98e86767b604946af434"
+      },
+      "year": 2025,
+      "month": 7,
+      "weekLength": 5,
+      "menu_type": "62eaf1787057ec305d5532cb",
+      "template": "calendar",
+      "wrapping": true,
+      "sid": "1552661568199",
+      "time_created": 1746639080,
+      "time_last_modified": 1746727963,
+      "isCycle": false,
+      "previousMonthPublished": {
+        "id": "67eada5ab2e62970ed20ca0b"
+      },
+      "nextMonthPublished": null,
+      "menuType": {
+        "id": "62eaf1787057ec305d5532cb",
+        "name": "Kramer Elementary Lunch",
+        "formats": [
+          "design",
+          "mobile"
+        ],
+        "listMenuIDs": null,
+        "sitePaths": [
+          {
+            "sites": [
+              {
+                "id": "5977",
+                "name": "Elementary School"
+              }
+            ]
+          },
+          {
+            "sites": [
+              {
+                "id": "4657",
+                "name": "Talawanda Elementary School"
+              },
+              {
+                "id": "10891",
+                "name": "Kramer Elementary School"
+              }
+            ]
+          }
+        ]
+      },
+      "OnlineMenuDesignSettings": {
+        "customAllergens": null,
+        "mealsPlusCustomAllergens": [],
+        "mealsPlusCustomAttributes": [],
+        "nutrientsDisabled": [
+          "iron",
+          "calcium",
+          "vitaminC",
+          "vitaminARE",
+          "vitaminA"
+        ],
+        "allergenFilterEnabled": true,
+        "showPriceOnPopovers": null,
+        "disableAllergen": [
+          "allergen_dairy",
+          "allergen_gluten",
+          "allergen_pork",
+          "allergen_vegetarian"
+        ],
+        "showAllergens": true,
+        "sid": "1552661568199",
+        "disableNutritionReportCard": false,
+        "categoryToBold": [
+          "Entrees",
+          "Ancillary"
+        ],
+        "onlineMealAppEnabled": null,
+        "onlineMealAppGraphic": null,
+        "onlineMealAppUrl": null,
+        "onlinePaymentProviderEnabled": null,
+        "onlinePaymentProviderGraphic": null,
+        "onlinePaymentProviderUrl": null,
+        "showAllergenIconOnMenu": [],
+        "web_menu_view_header_image_url": null,
+        "automaticItemSorting": null,
+        "hideCategoryHeaders": null,
+        "disableChainedSelects": null,
+        "dropdownMenuExcludeSchools": null,
+        "hideAllergensInNutritionReportCard": false,
+        "ratingDisableComments": null,
+        "disableTranslateWidget": null
+      },
+      "weeksForCycle": null,
+      "id": "681b98e86767b604946af434",
+      "days": [],
+      "settings": {
+        "designViewCalendarBgOpacity": 0.95,
+        "publish_mobile": true,
+        "publish_website": true,
+        "format_webmenu": false,
+        "format_design": true,
+        "publish_onlineordering": false,
+        "publish_digitalboards": false,
+        "publish_goinggreen": false,
+        "listViewMode": "nutrient_table",
+        "disableAutoListView": false,
+        "designViewCalendarBgOpacity100": 95,
+        "calendarRight": "6",
+        "publish_website_non_design": false,
+        "published": true
+      },
+      "cachedFontSize": 1.2,
+      "lastSaved": 1746727963,
+      "site_codes2": [
+        10891
+      ],
+      "site_codes": [
+        4657,
+        5977
+      ],
+      "site_paths": [
+        "/5977/",
+        "/4657/10891/"
+      ],
+      "bg": "https://docs.isitesoftware.com/webmenus-images/backgrounds/Bckgrnd_105"
+    },
+    {
+      "_id": {
+        "$id": "6899ea4281f9d1200b40f7a9"
+      },
+      "year": 2025,
+      "month": 8,
+      "weekLength": 5,
+      "menu_type": "62eaf1787057ec305d5532cb",
+      "template": "calendar",
+      "wrapping": true,
+      "sid": "1552661568199",
+      "time_created": 1754917442,
+      "time_last_modified": 1755529070,
+      "isCycle": false,
+      "previousMonthPublished": {
+        "id": "681b98e86767b604946af434"
+      },
+      "nextMonthPublished": null,
+      "menuType": {
+        "id": "62eaf1787057ec305d5532cb",
+        "name": "Kramer Elementary Lunch",
+        "formats": [
+          "design",
+          "mobile"
+        ],
+        "listMenuIDs": null,
+        "sitePaths": [
+          {
+            "sites": [
+              {
+                "id": "5977",
+                "name": "Elementary School"
+              }
+            ]
+          },
+          {
+            "sites": [
+              {
+                "id": "4657",
+                "name": "Talawanda Elementary School"
+              },
+              {
+                "id": "10891",
+                "name": "Kramer Elementary School"
+              }
+            ]
+          }
+        ]
+      },
+      "OnlineMenuDesignSettings": {
+        "customAllergens": null,
+        "mealsPlusCustomAllergens": [],
+        "mealsPlusCustomAttributes": [],
+        "nutrientsDisabled": [
+          "iron",
+          "calcium",
+          "vitaminC",
+          "vitaminARE",
+          "vitaminA"
+        ],
+        "allergenFilterEnabled": true,
+        "showPriceOnPopovers": null,
+        "disableAllergen": [
+          "allergen_dairy",
+          "allergen_gluten",
+          "allergen_pork",
+          "allergen_vegetarian"
+        ],
+        "showAllergens": true,
+        "sid": "1552661568199",
+        "disableNutritionReportCard": false,
+        "categoryToBold": [
+          "Entrees",
+          "Ancillary"
+        ],
+        "onlineMealAppEnabled": null,
+        "onlineMealAppGraphic": null,
+        "onlineMealAppUrl": null,
+        "onlinePaymentProviderEnabled": null,
+        "onlinePaymentProviderGraphic": null,
+        "onlinePaymentProviderUrl": null,
+        "showAllergenIconOnMenu": [],
+        "web_menu_view_header_image_url": null,
+        "automaticItemSorting": null,
+        "hideCategoryHeaders": null,
+        "disableChainedSelects": null,
+        "dropdownMenuExcludeSchools": null,
+        "hideAllergensInNutritionReportCard": false,
+        "ratingDisableComments": null,
+        "disableTranslateWidget": null
+      },
+      "weeksForCycle": null,
+      "id": "6899ea4281f9d1200b40f7a9",
+      "days": [],
+      "settings": {
+        "designViewCalendarBgOpacity": 0.95,
+        "publish_mobile": true,
+        "publish_website": true,
+        "format_webmenu": false,
+        "format_design": true,
+        "publish_onlineordering": false,
+        "publish_digitalboards": false,
+        "publish_goinggreen": false,
+        "listViewMode": "nutrient_table",
+        "disableAutoListView": false,
+        "designViewCalendarBgOpacity100": 95,
+        "publish_website_non_design": false,
+        "calendarRight": "15",
+        "published": true
+      },
+      "lastSaved": 1755529069,
+      "site_paths": [
+        "/5977/",
+        "/4657/10891/"
+      ],
+      "cachedFontSize": 1.3,
+      "bg": "https://docs.isitesoftware.com/webmenus-images/backgrounds/Blue-with-oranges",
+      "site_codes2": [
+        10891
+      ],
+      "site_codes": [
+        4657,
+        5977
+      ]
+    },
+    {
+      "_id": {
+        "$id": "68b708e20b1ac86f9b4efcfc"
+      },
+      "year": 2025,
+      "month": 9,
+      "weekLength": 5,
+      "menu_type": "62eaf1787057ec305d5532cb",
+      "template": "calendar",
+      "wrapping": true,
+      "sid": "1552661568199",
+      "time_created": 1756825826,
+      "time_last_modified": 1757524480,
+      "isCycle": false,
+      "previousMonthPublished": {
+        "id": "6899ea4281f9d1200b40f7a9"
+      },
+      "nextMonthPublished": null,
+      "menuType": {
+        "id": "62eaf1787057ec305d5532cb",
+        "name": "Kramer Elementary Lunch",
+        "formats": [
+          "design",
+          "mobile"
+        ],
+        "listMenuIDs": null,
+        "sitePaths": [
+          {
+            "sites": [
+              {
+                "id": "5977",
+                "name": "Elementary School"
+              }
+            ]
+          },
+          {
+            "sites": [
+              {
+                "id": "4657",
+                "name": "Talawanda Elementary School"
+              },
+              {
+                "id": "10891",
+                "name": "Kramer Elementary School"
+              }
+            ]
+          }
+        ]
+      },
+      "OnlineMenuDesignSettings": {
+        "customAllergens": null,
+        "mealsPlusCustomAllergens": [],
+        "mealsPlusCustomAttributes": [],
+        "nutrientsDisabled": [
+          "iron",
+          "calcium",
+          "vitaminC",
+          "vitaminARE",
+          "vitaminA"
+        ],
+        "allergenFilterEnabled": true,
+        "showPriceOnPopovers": null,
+        "disableAllergen": [
+          "allergen_dairy",
+          "allergen_gluten",
+          "allergen_pork",
+          "allergen_vegetarian"
+        ],
+        "showAllergens": true,
+        "sid": "1552661568199",
+        "disableNutritionReportCard": false,
+        "categoryToBold": [
+          "Entrees",
+          "Ancillary"
+        ],
+        "onlineMealAppEnabled": null,
+        "onlineMealAppGraphic": null,
+        "onlineMealAppUrl": null,
+        "onlinePaymentProviderEnabled": null,
+        "onlinePaymentProviderGraphic": null,
+        "onlinePaymentProviderUrl": null,
+        "showAllergenIconOnMenu": [],
+        "web_menu_view_header_image_url": null,
+        "automaticItemSorting": null,
+        "hideCategoryHeaders": null,
+        "disableChainedSelects": null,
+        "dropdownMenuExcludeSchools": null,
+        "hideAllergensInNutritionReportCard": false,
+        "ratingDisableComments": null,
+        "disableTranslateWidget": null
+      },
+      "weeksForCycle": null,
+      "id": "68b708e20b1ac86f9b4efcfc",
+      "days": [],
+      "settings": {
+        "designViewCalendarBgOpacity": 0.95,
+        "publish_mobile": true,
+        "publish_website": true,
+        "format_webmenu": false,
+        "format_design": true,
+        "publish_onlineordering": false,
+        "publish_digitalboards": false,
+        "publish_goinggreen": false,
+        "listViewMode": "nutrient_table",
+        "disableAutoListView": false,
+        "designViewCalendarBgOpacity100": 95,
+        "publish_website_non_design": false,
+        "calendarRight": "17",
+        "published": true
+      },
+      "lastSaved": 1757524479,
+      "site_paths": [
+        "/5977/",
+        "/4657/10891/"
+      ],
+      "cachedFontSize": 1.2,
+      "bg": "https://docs.isitesoftware.com/webmenus-images/backgrounds/halloween-back-12",
+      "site_codes2": [
+        10891
+      ],
+      "site_codes": [
+        4657,
+        5977
+      ]
+    },
+    {
+      "_id": {
+        "$id": "68dd4917c42c2d30eb743c83"
+      },
+      "year": 2025,
+      "month": 10,
+      "weekLength": 5,
+      "menu_type": "62eaf1787057ec305d5532cb",
+      "template": "calendar",
+      "wrapping": true,
+      "sid": "1552661568199",
+      "time_created": 1759332631,
+      "time_last_modified": 1760967791,
+      "isCycle": false,
+      "previousMonthPublished": {
+        "id": "68b708e20b1ac86f9b4efcfc"
+      },
+      "nextMonthPublished": null,
+      "menuType": {
+        "id": "62eaf1787057ec305d5532cb",
+        "name": "Kramer Elementary Lunch",
+        "formats": [
+          "design",
+          "mobile"
+        ],
+        "listMenuIDs": null,
+        "sitePaths": [
+          {
+            "sites": [
+              {
+                "id": "5977",
+                "name": "Elementary School"
+              }
+            ]
+          },
+          {
+            "sites": [
+              {
+                "id": "4657",
+                "name": "Talawanda Elementary School"
+              },
+              {
+                "id": "10891",
+                "name": "Kramer Elementary School"
+              }
+            ]
+          }
+        ]
+      },
+      "OnlineMenuDesignSettings": {
+        "customAllergens": null,
+        "mealsPlusCustomAllergens": [],
+        "mealsPlusCustomAttributes": [],
+        "nutrientsDisabled": [
+          "iron",
+          "calcium",
+          "vitaminC",
+          "vitaminARE",
+          "vitaminA"
+        ],
+        "allergenFilterEnabled": true,
+        "showPriceOnPopovers": null,
+        "disableAllergen": [
+          "allergen_dairy",
+          "allergen_gluten",
+          "allergen_pork",
+          "allergen_vegetarian"
+        ],
+        "showAllergens": true,
+        "sid": "1552661568199",
+        "disableNutritionReportCard": false,
+        "categoryToBold": [
+          "Entrees",
+          "Ancillary"
+        ],
+        "onlineMealAppEnabled": null,
+        "onlineMealAppGraphic": null,
+        "onlineMealAppUrl": null,
+        "onlinePaymentProviderEnabled": null,
+        "onlinePaymentProviderGraphic": null,
+        "onlinePaymentProviderUrl": null,
+        "showAllergenIconOnMenu": [],
+        "web_menu_view_header_image_url": null,
+        "automaticItemSorting": null,
+        "hideCategoryHeaders": null,
+        "disableChainedSelects": null,
+        "dropdownMenuExcludeSchools": null,
+        "hideAllergensInNutritionReportCard": false,
+        "ratingDisableComments": null,
+        "disableTranslateWidget": null
+      },
+      "weeksForCycle": null,
+      "id": "68dd4917c42c2d30eb743c83",
+      "days": [],
+      "settings": {
+        "designViewCalendarBgOpacity": 0.95,
+        "publish_mobile": true,
+        "publish_website": true,
+        "format_webmenu": false,
+        "format_design": true,
+        "publish_onlineordering": false,
+        "publish_digitalboards": false,
+        "publish_goinggreen": false,
+        "listViewMode": "nutrient_table",
+        "disableAutoListView": false,
+        "designViewCalendarBgOpacity100": 95,
+        "publish_website_non_design": false,
+        "published": true
+      },
+      "cachedFontSize": 1.3,
+      "lastSaved": 1760967791,
+      "site_paths": [
+        "/5977/",
+        "/4657/10891/"
+      ],
+      "site_codes2": [
+        10891
+      ],
+      "site_codes": [
+        4657,
+        5977
+      ],
+      "bg": "https://docs.isitesoftware.com/webmenus-images/backgrounds/Bckgrnd_106"
+    }
+  ]
+}
