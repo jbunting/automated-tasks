@@ -1,331 +1,321 @@
 #!/usr/bin/env python3
 """
-School Lunch Menu to ICS Calendar Converter
+School Lunch Menu Fetcher - Working Version Using Saved GraphQL Data
 
-This script fetches the school lunch menu from the School Nutrition and Fitness website
-and converts it into an ICS calendar file that can be imported into Google Calendar,
-Home Assistant, and other calendar applications.
+Since the GraphQL API requires browser authentication, this script:
+1. Uses saved GraphQL JSON responses
+2. Parses them into calendar events
+3. Generates ICS file
+
+To update monthly:
+1. Open the menu page in browser: https://www.schoolnutritionandfitness.com/webmenus2/#/view?id=MENU_ID&siteCode=4657
+2. Open Developer Tools (F12) → Network tab
+3. Look for GraphQL request to api.isitesoftware.com/graphql
+4. Copy the response JSON
+5. Save to discovery/menu_YYYY_MM.json
+6. Run this script
 """
 
 import json
-import re
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import List, Dict, Optional
-import requests
-from bs4 import BeautifulSoup
+
 from icalendar import Calendar, Event
-from dateutil.parser import parse as parse_date
 
 
-class MenuFetcher:
-    """Fetches and parses school lunch menu data."""
+def find_graphql_json_files(discovery_dir: Path) -> List[Path]:
+    """Find all GraphQL JSON files in the discovery directory."""
+    json_files = []
 
-    def __init__(self, menu_id: str, site_code: str):
-        self.menu_id = menu_id
-        self.site_code = site_code
-        self.base_url = "https://www.schoolnutritionandfitness.com"
-        self.session = requests.Session()
-        self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-        })
+    # Pattern 1: menu_YYYY_MM.json
+    for file in discovery_dir.glob("menu_*.json"):
+        json_files.append(file)
 
-    def fetch_menu_data(self) -> Optional[Dict]:
-        """
-        Fetch menu data from the API.
-        The site likely has an API endpoint that returns JSON data.
-        """
-        # Try common API patterns
-        api_urls = [
-            f"{self.base_url}/api/menu/{self.menu_id}",
-            f"{self.base_url}/api/menus/{self.menu_id}",
-            f"{self.base_url}/api/v1/menu/{self.menu_id}",
-            f"{self.base_url}/webmenus2/api/menu/{self.menu_id}",
-        ]
+    # Pattern 2: *-graphql.json
+    for file in discovery_dir.glob("*-graphql.json"):
+        json_files.append(file)
 
-        for api_url in api_urls:
-            try:
-                print(f"Trying API endpoint: {api_url}")
-                response = self.session.get(api_url, timeout=10)
-                if response.status_code == 200:
-                    try:
-                        data = response.json()
-                        print(f"✓ Successfully fetched data from {api_url}")
-                        return data
-                    except json.JSONDecodeError:
-                        continue
-            except requests.RequestException as e:
-                print(f"  Failed: {e}")
-                continue
+    return sorted(json_files)
 
-        # If API endpoints don't work, try fetching the page and looking for embedded JSON
-        print("\nAPI endpoints didn't work, trying to parse the page...")
-        return self.fetch_from_page()
 
-    def fetch_from_page(self) -> Optional[Dict]:
-        """Fetch menu data embedded in the page HTML."""
-        url = f"{self.base_url}/webmenus2/#/view?id={self.menu_id}&siteCode={self.site_code}"
+def load_graphql_json(json_path: Path) -> Optional[Dict]:
+    """Load a GraphQL response JSON file."""
+    try:
+        with open(json_path, 'r') as f:
+            data = json.load(f)
 
-        try:
-            response = self.session.get(url, timeout=10)
-            if response.status_code != 200:
-                print(f"Failed to fetch page: HTTP {response.status_code}")
-                return None
-
-            soup = BeautifulSoup(response.text, 'html.parser')
-
-            # Look for JSON data in script tags
-            for script in soup.find_all('script'):
-                if script.string and 'menu' in script.string.lower():
-                    # Try to extract JSON objects
-                    json_matches = re.findall(r'\{[\s\S]*?\}', script.string)
-                    for match in json_matches:
-                        try:
-                            data = json.loads(match)
-                            if self.validate_menu_data(data):
-                                print("✓ Found valid menu data in page")
-                                return data
-                        except json.JSONDecodeError:
-                            continue
-
-            print("Could not find menu data in page")
+        # Handle both raw GraphQL response and extracted menu data
+        if 'data' in data and 'menu' in data['data']:
+            return data['data']['menu']
+        elif 'menu' in data:
+            return data['menu']
+        elif 'items' in data:  # Already extracted menu data
+            return data
+        else:
+            print(f"⚠ Unexpected JSON structure in {json_path}")
             return None
 
-        except requests.RequestException as e:
-            print(f"Error fetching page: {e}")
-            return None
-
-    def validate_menu_data(self, data: Dict) -> bool:
-        """Check if the data looks like menu data."""
-        # Basic validation - adjust based on actual data structure
-        if not isinstance(data, dict):
-            return False
-
-        # Look for common menu-related keys
-        menu_keys = ['menu', 'items', 'dates', 'days', 'meals', 'calendar']
-        return any(key in str(data).lower() for key in menu_keys)
+    except Exception as e:
+        print(f"❌ Error loading {json_path}: {e}")
+        return None
 
 
-class MenuParser:
-    """Parses menu data and extracts meal information."""
+def is_current_or_upcoming_month(year: int, month: int, months_ahead: int = 2) -> bool:
+    """Check if a year/month is within the target range."""
+    now = datetime.now()
+    target_date = datetime(year, month + 1, 1)  # month is 0-indexed
 
-    @staticmethod
-    def parse_menu(data: Dict) -> List[Dict]:
-        """
-        Parse menu data and return a list of meal events.
+    # Calculate range - include current month even if we're near the end
+    # Normalize to start of day for comparison
+    earliest = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    latest = (now + timedelta(days=35 * (months_ahead + 1))).replace(day=1, hour=0, minute=0, second=0, microsecond=0)
 
-        Returns:
-            List of dicts with keys: date, title, description
-        """
-        events = []
+    return earliest <= target_date < latest
 
-        # The actual structure will depend on the API response
-        # This is a flexible parser that handles common patterns
 
-        if isinstance(data, dict):
-            # Pattern 1: menu with days array
-            if 'days' in data:
-                events.extend(MenuParser._parse_days_format(data['days']))
+def parse_graphql_to_events(menu_data: Dict) -> List[Dict]:
+    """
+    Parse GraphQL menu data into calendar events.
 
-            # Pattern 2: menu with dates object
-            elif 'dates' in data:
-                events.extend(MenuParser._parse_dates_format(data['dates']))
+    Args:
+        menu_data: The menu data from GraphQL response
 
-            # Pattern 3: menu with items array
-            elif 'items' in data:
-                events.extend(MenuParser._parse_items_format(data['items']))
+    Returns:
+        List of event dictionaries
+    """
+    events = []
 
-            # Pattern 4: nested menu data
-            elif 'menu' in data:
-                events.extend(MenuParser.parse_menu(data['menu']))
-
+    if 'items' not in menu_data or not menu_data['items']:
+        print(f"  ⚠ No items in menu data")
         return events
 
-    @staticmethod
-    def _parse_days_format(days: List) -> List[Dict]:
-        """Parse menu data in 'days' format."""
-        events = []
-        for day in days:
-            if not isinstance(day, dict):
-                continue
+    year = menu_data.get('year')
+    month = menu_data.get('month', 0) + 1  # Convert from 0-indexed to 1-indexed
 
-            date = day.get('date')
-            items = day.get('items', []) or day.get('meals', [])
+    print(f"  Parsing {datetime(year, month, 1).strftime('%B %Y')}")
 
-            if date and items:
-                # Combine all items into description
-                description = '\n'.join(str(item) for item in items if item)
-                events.append({
-                    'date': MenuParser._parse_date(date),
-                    'title': 'School Lunch',
-                    'description': description
-                })
+    # Group items by day
+    days_map = {}
+    for item in menu_data['items']:
+        # Skip hidden items
+        if item.get('hidden'):
+            continue
 
-        return events
+        day_num = item.get('day')
+        if not day_num:
+            continue
 
-    @staticmethod
-    def _parse_dates_format(dates: Dict) -> List[Dict]:
-        """Parse menu data in 'dates' format (date -> items mapping)."""
-        events = []
-        for date_str, items in dates.items():
-            try:
-                date = MenuParser._parse_date(date_str)
-                if isinstance(items, list):
-                    description = '\n'.join(str(item) for item in items if item)
-                else:
-                    description = str(items)
+        if day_num not in days_map:
+            days_map[day_num] = []
 
-                events.append({
-                    'date': date,
-                    'title': 'School Lunch',
-                    'description': description
-                })
-            except (ValueError, TypeError):
-                continue
+        product = item.get('product', {})
+        if product and product.get('name'):
+            days_map[day_num].append(product)
 
-        return events
-
-    @staticmethod
-    def _parse_items_format(items: List) -> List[Dict]:
-        """Parse menu data in 'items' format."""
-        events = []
-        for item in items:
-            if not isinstance(item, dict):
-                continue
-
-            date = item.get('date') or item.get('day')
-            menu = item.get('menu') or item.get('items') or item.get('description')
-
-            if date and menu:
-                events.append({
-                    'date': MenuParser._parse_date(date),
-                    'title': 'School Lunch',
-                    'description': str(menu)
-                })
-
-        return events
-
-    @staticmethod
-    def _parse_date(date_input) -> datetime:
-        """Parse various date formats."""
-        if isinstance(date_input, datetime):
-            return date_input
-
-        if isinstance(date_input, str):
-            return parse_date(date_input)
-
-        raise ValueError(f"Cannot parse date: {date_input}")
-
-
-class ICSGenerator:
-    """Generates ICS calendar files from meal events."""
-
-    @staticmethod
-    def generate_calendar(events: List[Dict], output_path: Path) -> bool:
-        """
-        Generate an ICS calendar file.
-
-        Args:
-            events: List of event dicts with date, title, description
-            output_path: Path to save the ICS file
-
-        Returns:
-            True if successful
-        """
-        cal = Calendar()
-        cal.add('prodid', '-//School Lunch Menu//EN')
-        cal.add('version', '2.0')
-        cal.add('X-WR-CALNAME', 'School Lunch Menu')
-        cal.add('X-WR-TIMEZONE', 'America/New_York')  # Adjust as needed
-        cal.add('X-WR-CALDESC', 'Automated school lunch menu calendar')
-
-        for event_data in events:
-            event = Event()
-            event.add('summary', event_data['title'])
-            event.add('description', event_data['description'])
-
-            # Set as all-day event
-            date = event_data['date']
-            event.add('dtstart', date.date())
-            event.add('dtend', (date + timedelta(days=1)).date())
-
-            # Add unique ID
-            uid = f"{date.strftime('%Y%m%d')}-lunch@automated-tasks"
-            event.add('uid', uid)
-
-            # Set timestamp
-            event.add('dtstamp', datetime.now())
-
-            cal.add_component(event)
-
-        # Write to file
+    # Create events for each day
+    for day_num, products in sorted(days_map.items()):
         try:
-            output_path.parent.mkdir(parents=True, exist_ok=True)
-            with open(output_path, 'wb') as f:
-                f.write(cal.to_ical())
-            print(f"✓ Calendar written to {output_path}")
-            return True
+            date = datetime(year, month, int(day_num))
+
+            # Skip past dates
+            if date.date() < datetime.now().date():
+                continue
+
+            # Group products by category
+            by_category = {}
+            for product in products:
+                category = product.get('category', 'Items')
+                if category not in by_category:
+                    by_category[category] = []
+                by_category[category].append(product['name'])
+
+            # Format description
+            description_parts = []
+
+            # Show entrees first
+            if 'Entrees' in by_category:
+                description_parts.append("Main Dishes:")
+                for item in by_category['Entrees']:
+                    description_parts.append(f"  • {item}")
+                del by_category['Entrees']
+
+            # Then other categories
+            for category, items in sorted(by_category.items()):
+                if items:
+                    description_parts.append(f"\n{category}:")
+                    for item in items:
+                        description_parts.append(f"  • {item}")
+
+            description = '\n'.join(description_parts)
+
+            events.append({
+                'date': date,
+                'title': 'School Lunch',
+                'description': description
+            })
+
         except Exception as e:
-            print(f"Error writing calendar: {e}")
-            return False
+            print(f"  Warning: Could not parse day {day_num}: {e}")
+            continue
+
+    return events
+
+
+def generate_ics(events: List[Dict], output_path: Path, calendar_name: str) -> bool:
+    """Generate ICS calendar file from events."""
+    cal = Calendar()
+    cal.add('prodid', '-//School Lunch Menu//EN')
+    cal.add('version', '2.0')
+    cal.add('X-WR-CALNAME', calendar_name)
+    cal.add('X-WR-CALDESC', 'Automated school lunch menu calendar')
+
+    for event_data in events:
+        event = Event()
+        event.add('summary', event_data['title'])
+        event.add('description', event_data['description'])
+
+        # Set as all-day event
+        date = event_data['date']
+        event.add('dtstart', date.date())
+        event.add('dtend', (date + timedelta(days=1)).date())
+
+        # Add unique ID
+        uid = f"{date.strftime('%Y%m%d')}-lunch@automated-tasks"
+        event.add('uid', uid)
+        event.add('dtstamp', datetime.now())
+
+        cal.add_component(event)
+
+    try:
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(output_path, 'wb') as f:
+            f.write(cal.to_ical())
+        print(f"\n✓ Calendar written to {output_path}")
+        print(f"  Contains {len(events)} events")
+        return True
+    except Exception as e:
+        print(f"\n❌ Error writing calendar: {e}")
+        return False
+
+
+def print_update_instructions(discovery_dir: Path):
+    """Print instructions for updating the menu data."""
+    print("\n" + "=" * 50)
+    print("📋 To Update the Menu for Next Month:")
+    print("=" * 50)
+    print("\n1. Open the menu page in your browser:")
+    print("   https://www.schoolnutritionandfitness.com/webmenus2/#/view?id=MENU_ID&siteCode=4657")
+    print("   (Check the menu list page for the correct MENU_ID)")
+    print("\n2. Open Developer Tools (F12) → Network tab")
+    print("\n3. Look for a request to: api.isitesoftware.com/graphql")
+    print("   - Click on it")
+    print("   - Go to 'Response' tab")
+    print("   - Copy all the JSON")
+    print("\n4. Save the JSON to:")
+    now = datetime.now()
+    next_month = now + timedelta(days=32)
+    example_file = f"menu_{next_month.year}_{next_month.month:02d}.json"
+    print(f"   {discovery_dir / example_file}")
+    print("\n5. Run this script again:")
+    print("   python3 fetch_menu.py")
+    print("\n6. Commit and push to GitHub:")
+    print("   git add docs/school-lunch.ics")
+    print(f"   git add discovery/{example_file}")
+    month_name = next_month.strftime("%B %Y")
+    print(f'   git commit -m "Update lunch menu for {month_name}"')
+    print("   git push")
 
 
 def main():
     """Main execution function."""
     # Configuration
-    MENU_ID = "68b708e20b1ac86f9b4efcfc"
-    SITE_CODE = "4657"
-    OUTPUT_DIR = Path("docs")  # GitHub Pages serves from docs/
+    DISCOVERY_DIR = Path("discovery")
+    OUTPUT_DIR = Path("docs")
     OUTPUT_FILE = OUTPUT_DIR / "school-lunch.ics"
+    CALENDAR_NAME = "Kramer Elementary Lunch"
 
-    print("School Lunch Menu to ICS Converter")
+    print("School Lunch Menu Calendar Generator")
     print("=" * 50)
 
-    # Fetch menu data
-    fetcher = MenuFetcher(MENU_ID, SITE_CODE)
-    menu_data = fetcher.fetch_menu_data()
+    # Find all GraphQL JSON files
+    json_files = find_graphql_json_files(DISCOVERY_DIR)
 
-    if not menu_data:
-        print("\n❌ Failed to fetch menu data")
-        print("\nTroubleshooting:")
-        print("1. Check if the menu ID and site code are correct")
-        print("2. The website might require JavaScript - consider using Selenium")
-        print("3. Try downloading the PDF version and parsing it instead")
+    if not json_files:
+        print("\n❌ No GraphQL JSON files found in discovery/")
+        print_update_instructions(DISCOVERY_DIR)
         sys.exit(1)
 
-    # Parse menu data
-    print("\nParsing menu data...")
-    parser = MenuParser()
-    events = parser.parse_menu(menu_data)
+    print(f"\nFound {len(json_files)} JSON file(s):")
+    for file in json_files:
+        print(f"  - {file.name}")
 
-    if not events:
-        print("❌ No events found in menu data")
-        print("\nMenu data structure:")
-        print(json.dumps(menu_data, indent=2)[:500])
+    # Load and parse all files
+    all_events = []
+
+    for json_file in json_files:
+        print(f"\nProcessing {json_file.name}...")
+        menu_data = load_graphql_json(json_file)
+
+        if not menu_data:
+            print(f"  ⚠ Skipping {json_file.name}")
+            continue
+
+        # Check if this month is relevant
+        year = menu_data.get('year')
+        month = menu_data.get('month')
+
+        if year and month is not None:
+            if not is_current_or_upcoming_month(year, month, months_ahead=3):
+                month_name = datetime(year, month + 1, 1).strftime('%B %Y')
+                print(f"  ⏭ Skipping {month_name} (too far past or future)")
+                continue
+
+        # Parse events
+        events = parse_graphql_to_events(menu_data)
+        all_events.extend(events)
+        print(f"  ✓ Added {len(events)} lunch dates")
+
+    if not all_events:
+        print("\n⚠ No events found in any JSON file")
+        print_update_instructions(DISCOVERY_DIR)
         sys.exit(1)
-
-    print(f"✓ Found {len(events)} meal events")
 
     # Generate ICS file
-    print("\nGenerating ICS calendar...")
-    generator = ICSGenerator()
-    success = generator.generate_calendar(events, OUTPUT_FILE)
+    success = generate_ics(all_events, OUTPUT_FILE, CALENDAR_NAME)
 
     if success:
-        print("\n✅ Success! Calendar file created")
-        print(f"\nTo subscribe in Google Calendar:")
-        print(f"1. Go to Google Calendar settings")
-        print(f"2. Click 'Add calendar' → 'From URL'")
-        print(f"3. Enter: https://YOUR-USERNAME.github.io/automated-tasks/school-lunch.ics")
-        print(f"\nFor Home Assistant, add to configuration.yaml:")
-        print(f"  - platform: ical")
-        print(f"    name: School Lunch")
-        print(f"    url: https://YOUR-USERNAME.github.io/automated-tasks/school-lunch.ics")
+        print("\n" + "=" * 50)
+        print("✅ Success!")
+        print("=" * 50)
+        print(f"\nGenerated calendar with {len(all_events)} upcoming lunch dates")
+
+        # Show date range
+        dates = sorted([e['date'] for e in all_events])
+        print(f"Date range: {dates[0].strftime('%B %d, %Y')} to {dates[-1].strftime('%B %d, %Y')}")
+
+        print(f"\nCalendar file: {OUTPUT_FILE}")
+
+        print("\n📤 Next steps:")
+        print("1. git add docs/school-lunch.ics")
+        print('2. git commit -m "Update school lunch calendar"')
+        print("3. git push")
+        print("\n📅 Subscribe to calendar at:")
+        print("   https://YOUR-USERNAME.github.io/automated-tasks/school-lunch.ics")
+
+        # Check if we need more months
+        latest_date = dates[-1]
+        months_remaining = (latest_date.year - datetime.now().year) * 12 + (latest_date.month - datetime.now().month)
+
+        if months_remaining < 2:
+            print("\n⚠ Note: Less than 2 months of data available")
+            print_update_instructions(DISCOVERY_DIR)
+
+        return 0
     else:
-        print("\n❌ Failed to generate calendar")
-        sys.exit(1)
+        return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
