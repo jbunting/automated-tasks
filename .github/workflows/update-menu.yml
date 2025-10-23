@@ -1,0 +1,148 @@
+name: Update School Lunch Menu
+
+on:
+  # Run on the 1st of every month at 3 AM UTC
+  schedule:
+    - cron: '0 3 1 * *'
+
+  # Allow manual triggering
+  workflow_dispatch:
+
+  # Run on push to main (for testing)
+  push:
+    branches:
+      - main
+    paths:
+      - 'fetch_menu*.py'
+      - '.github/workflows/update-menu.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-calendar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Try API-based fetch
+        id: api_fetch
+        continue-on-error: true
+        run: |
+          python fetch_menu.py
+          if [ -f docs/school-lunch.ics ]; then
+            echo "success=true" >> $GITHUB_OUTPUT
+          else
+            echo "success=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Install Chrome and ChromeDriver (if API fetch failed)
+        if: steps.api_fetch.outputs.success != 'true'
+        run: |
+          # Install Chrome
+          wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+          # Install ChromeDriver
+          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+          CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION%%.*}")
+          wget -q "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/
+          sudo chmod +x /usr/local/bin/chromedriver
+
+      - name: Try Selenium-based fetch (if API fetch failed)
+        if: steps.api_fetch.outputs.success != 'true'
+        id: selenium_fetch
+        continue-on-error: true
+        run: |
+          python fetch_menu_selenium.py
+          if [ -f docs/school-lunch.ics ]; then
+            echo "success=true" >> $GITHUB_OUTPUT
+          else
+            echo "success=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check if calendar was generated
+        id: check_calendar
+        run: |
+          if [ -f docs/school-lunch.ics ]; then
+            # Check if it's not just the placeholder
+            if grep -q "VEVENT" docs/school-lunch.ics; then
+              echo "Calendar generated successfully with events"
+              echo "has_events=true" >> $GITHUB_OUTPUT
+            else
+              echo "Calendar file exists but has no events"
+              echo "has_events=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "Calendar file not generated"
+            echo "has_events=false" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+      - name: Upload artifacts for debugging
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-files
+          path: |
+            menu_screenshot.png
+            page_source.html
+            menu_text.txt
+          if-no-files-found: ignore
+
+      - name: Commit and push changes
+        if: steps.check_calendar.outputs.has_events == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          git add docs/school-lunch.ics
+
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update school lunch menu - $(date +'%Y-%m-%d')"
+            git push
+          fi
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = 'Failed to update school lunch menu';
+            const body = `The automated menu update failed on ${new Date().toISOString()}.
+
+            Please check the workflow logs and debug artifacts for more information.
+
+            Possible issues:
+            - Website structure changed
+            - Menu not yet published for this month
+            - Network issues
+
+            [View workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})`;
+
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: body,
+              labels: ['automated', 'bug']
+            });
