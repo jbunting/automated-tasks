@@ -48,35 +48,6 @@ jobs:
             echo "success=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Install Chrome and ChromeDriver (if API fetch failed)
-        if: steps.api_fetch.outputs.success != 'true'
-        run: |
-          # Install Chrome
-          wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-
-          # Install ChromeDriver
-          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
-          CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION%%.*}")
-          wget -q "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
-          sudo chmod +x /usr/local/bin/chromedriver
-
-      - name: Try Selenium-based fetch (if API fetch failed)
-        if: steps.api_fetch.outputs.success != 'true'
-        id: selenium_fetch
-        continue-on-error: true
-        run: |
-          python fetch_menu_selenium.py
-          if [ -f docs/school-lunch.ics ]; then
-            echo "success=true" >> $GITHUB_OUTPUT
-          else
-            echo "success=false" >> $GITHUB_OUTPUT
-          fi
-
       - name: Check if calendar was generated
         id: check_calendar
         run: |
