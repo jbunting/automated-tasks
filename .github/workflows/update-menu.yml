@@ -1,9 +1,9 @@
 name: Update School Lunch Menu
 
 on:
-  # Run on the 1st of every month at 3 AM UTC
+  # Run every day at 3 AM UTC
   schedule:
-    - cron: '0 3 1 * *'
+    - cron: '0 3 * * *'
 
   # Allow manual triggering
   workflow_dispatch:
