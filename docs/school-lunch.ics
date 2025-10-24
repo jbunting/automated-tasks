@@ -1,73 +1,63 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//School Lunch Menu//EN
+PRODID:-//School Lunch Menu Generator//EN
 X-WR-CALDESC:Automated school lunch menu calendar
 X-WR-CALNAME:Kramer Elementary Lunch
 BEGIN:VEVENT
-SUMMARY:School Lunch
-DTSTART;VALUE=DATE:20251023
-DTEND;VALUE=DATE:20251024
-DTSTAMP:20251023T154524Z
-UID:20251023-lunch@automated-tasks
-DESCRIPTION:Main Dishes:\n  • Chicken Fries\n\n:\n  • Dinner Roll\n  
- • Seasoned Green Beans\n  • Celery Sticks w/ Ranch\n  • Orange Wedge
- s
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:School Lunch
+SUMMARY:Kramer Lunch: Wild Mike's Cheese Bites
 DTSTART;VALUE=DATE:20251024
 DTEND;VALUE=DATE:20251025
-DTSTAMP:20251023T154524Z
+DTSTAMP:20251024T083344Z
 UID:20251024-lunch@automated-tasks
-DESCRIPTION:Main Dishes:\n  • Wild Mike's Cheese Bites\n\n:\n  • Sweet
-  Corn\n  • Fresh Romaine Garden Salad\n  • Mixed Fruit
+DESCRIPTION:Main Dish:\n  • Wild Mike's Cheese Bites\nSides:\n  • Swee
+ t Corn\n  • Fresh Romaine Garden Salad\n  • Mixed Fruit
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:School Lunch
+SUMMARY:Kramer Lunch: Sausage Patties (2)
 DTSTART;VALUE=DATE:20251027
 DTEND;VALUE=DATE:20251028
-DTSTAMP:20251023T154524Z
+DTSTAMP:20251024T083344Z
 UID:20251027-lunch@automated-tasks
-DESCRIPTION:Main Dishes:\n  • Sausage Patties (2)\n  • Cheeseburger on
-  a Bun\n\n:\n  • Waffle Fries\n  • Baby Carrots w/ Ranch\n  • Flavor
- ed Applesauce
+DESCRIPTION:Main Dish:\n  • Sausage Patties (2)\n  • Cheeseburger on a
+  Bun\nSides:\n  • Waffle Fries\n  • Baby Carrots w/ Ranch\n  • Flavo
+ red Applesauce
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:School Lunch
+SUMMARY:Kramer Lunch: Chicken Patty on Bun
 DTSTART;VALUE=DATE:20251028
 DTEND;VALUE=DATE:20251029
-DTSTAMP:20251023T154524Z
+DTSTAMP:20251024T083344Z
 UID:20251028-lunch@automated-tasks
-DESCRIPTION:Main Dishes:\n  • Chicken Patty on Bun\n\n:\n  • Homestyle
-  Baked Beans\n  • Celery Sticks w/ Ranch\n  • Strawberry Cup
+DESCRIPTION:Main Dish:\n  • Chicken Patty on Bun\nSides:\n  • Homestyl
+ e Baked Beans\n  • Celery Sticks w/ Ranch\n  • Strawberry Cup
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:School Lunch
+SUMMARY:Kramer Lunch: Breaded Chicken Drumstick
 DTSTART;VALUE=DATE:20251029
 DTEND;VALUE=DATE:20251030
-DTSTAMP:20251023T154524Z
+DTSTAMP:20251024T083344Z
 UID:20251029-lunch@automated-tasks
-DESCRIPTION:Main Dishes:\n  • Breaded Chicken Drumstick\n\n:\n  • Corn
- bread Muffin\n  • Cheesy Potatoes\n  • Fresh Cucumber Slices w/ Ranch\
- n  • Frozen Fruit Sidekick
+DESCRIPTION:Main Dish:\n  • Breaded Chicken Drumstick\nSides:\n  • Cor
+ nbread Muffin\n  • Cheesy Potatoes\n  • Fresh Cucumber Slices w/ Ranch
+ \n  • Frozen Fruit Sidekick
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:School Lunch
+SUMMARY:Kramer Lunch: Pulled BBQ Chicken Sandwich
 DTSTART;VALUE=DATE:20251030
 DTEND;VALUE=DATE:20251031
-DTSTAMP:20251023T154524Z
+DTSTAMP:20251024T083344Z
 UID:20251030-lunch@automated-tasks
-DESCRIPTION:Main Dishes:\n  • Pulled BBQ Chicken Sandwich\n\n:\n  • Se
- asoned Peas\n  • Fresh Romaine Garden Salad\n  • Chilled Pears
+DESCRIPTION:Main Dish:\n  • Pulled BBQ Chicken Sandwich\nSides:\n  • S
+ easoned Peas\n  • Fresh Romaine Garden Salad\n  • Chilled Pears
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:School Lunch
+SUMMARY:Kramer Lunch: BOO-sco Sticks
 DTSTART;VALUE=DATE:20251031
 DTEND;VALUE=DATE:20251101
-DTSTAMP:20251023T154524Z
+DTSTAMP:20251024T083344Z
 UID:20251031-lunch@automated-tasks
-DESCRIPTION:Main Dishes:\n  • BOO-sco Sticks\n\n:\n  • Steamed Broccol
- i\n  • Marinara Cup\n\nFruit:\n  •  Fresh Apple Slices\n\nMiscellaneou
- s:\n  •  Carmel Dip Cup
+DESCRIPTION:Main Dish:\n  • BOO-sco Sticks\nSides:\n  • Steamed Brocco
+ li\n  • Marinara Cup\nFruit:\n  •  Fresh Apple Slices\nMiscellaneous:\
+ n  •  Carmel Dip Cup
 END:VEVENT
 END:VCALENDAR

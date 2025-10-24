@@ -135,24 +135,31 @@ def parse_graphql_to_events(menu_data: Dict) -> List[Dict]:
             description_parts = []
 
             # Show entrees first
+            main_course = ""
             if 'Entrees' in by_category:
-                description_parts.append("Main Dishes:")
+                description_parts.append("Main Dish:")
                 for item in by_category['Entrees']:
                     description_parts.append(f"  • {item}")
+                    if not main_course:
+                        main_course = item
                 del by_category['Entrees']
 
             # Then other categories
             for category, items in sorted(by_category.items()):
+                if not category:
+                    category = "Sides"
                 if items:
-                    description_parts.append(f"\n{category}:")
+                    description_parts.append(f"{category}:")
                     for item in items:
                         description_parts.append(f"  • {item}")
 
             description = '\n'.join(description_parts)
 
+            title = f"Kramer Lunch: {main_course}" if main_course else "Kramer Lunch" 
+
             events.append({
                 'date': date,
-                'title': 'School Lunch',
+                'title': title,
                 'description': description
             })
 
@@ -166,7 +173,7 @@ def parse_graphql_to_events(menu_data: Dict) -> List[Dict]:
 def generate_ics(events: List[Dict], output_path: Path, calendar_name: str) -> bool:
     """Generate ICS calendar file from events."""
     cal = Calendar()
-    cal.add('prodid', '-//School Lunch Menu//EN')
+    cal.add('prodid', '-//School Lunch Menu Generator//EN')
     cal.add('version', '2.0')
     cal.add('X-WR-CALNAME', calendar_name)
     cal.add('X-WR-CALDESC', 'Automated school lunch menu calendar')
