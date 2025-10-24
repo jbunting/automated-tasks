@@ -7,7 +7,7 @@ BEGIN:VEVENT
 SUMMARY:Kramer Lunch: Wild Mike's Cheese Bites
 DTSTART;VALUE=DATE:20251024
 DTEND;VALUE=DATE:20251025
-DTSTAMP:20251024T092947Z
+DTSTAMP:20251024T134830Z
 UID:20251024-lunch@automated-tasks
 DESCRIPTION:Main Dish:\n  • Wild Mike's Cheese Bites\nSides:\n  • Swee
  t Corn\n  • Fresh Romaine Garden Salad\n  • Mixed Fruit
@@ -16,7 +16,7 @@ BEGIN:VEVENT
 SUMMARY:Kramer Lunch: Sausage Patties (2)
 DTSTART;VALUE=DATE:20251027
 DTEND;VALUE=DATE:20251028
-DTSTAMP:20251024T092947Z
+DTSTAMP:20251024T134830Z
 UID:20251027-lunch@automated-tasks
 DESCRIPTION:Main Dish:\n  • Sausage Patties (2)\n  • Cheeseburger on a
   Bun\nSides:\n  • Waffle Fries\n  • Baby Carrots w/ Ranch\n  • Flavo
@@ -26,7 +26,7 @@ BEGIN:VEVENT
 SUMMARY:Kramer Lunch: Chicken Patty on Bun
 DTSTART;VALUE=DATE:20251028
 DTEND;VALUE=DATE:20251029
-DTSTAMP:20251024T092947Z
+DTSTAMP:20251024T134830Z
 UID:20251028-lunch@automated-tasks
 DESCRIPTION:Main Dish:\n  • Chicken Patty on Bun\nSides:\n  • Homestyl
  e Baked Beans\n  • Celery Sticks w/ Ranch\n  • Strawberry Cup
@@ -35,7 +35,7 @@ BEGIN:VEVENT
 SUMMARY:Kramer Lunch: Breaded Chicken Drumstick
 DTSTART;VALUE=DATE:20251029
 DTEND;VALUE=DATE:20251030
-DTSTAMP:20251024T092947Z
+DTSTAMP:20251024T134830Z
 UID:20251029-lunch@automated-tasks
 DESCRIPTION:Main Dish:\n  • Breaded Chicken Drumstick\nSides:\n  • Cor
  nbread Muffin\n  • Cheesy Potatoes\n  • Fresh Cucumber Slices w/ Ranch
@@ -45,7 +45,7 @@ BEGIN:VEVENT
 SUMMARY:Kramer Lunch: Pulled BBQ Chicken Sandwich
 DTSTART;VALUE=DATE:20251030
 DTEND;VALUE=DATE:20251031
-DTSTAMP:20251024T092947Z
+DTSTAMP:20251024T134830Z
 UID:20251030-lunch@automated-tasks
 DESCRIPTION:Main Dish:\n  • Pulled BBQ Chicken Sandwich\nSides:\n  • S
  easoned Peas\n  • Fresh Romaine Garden Salad\n  • Chilled Pears
@@ -54,7 +54,7 @@ BEGIN:VEVENT
 SUMMARY:Kramer Lunch: BOO-sco Sticks
 DTSTART;VALUE=DATE:20251031
 DTEND;VALUE=DATE:20251101
-DTSTAMP:20251024T092947Z
+DTSTAMP:20251024T134830Z
 UID:20251031-lunch@automated-tasks
 DESCRIPTION:Main Dish:\n  • BOO-sco Sticks\nSides:\n  • Steamed Brocco
  li\n  • Marinara Cup\nFruit:\n  •  Fresh Apple Slices\nMiscellaneous:\
