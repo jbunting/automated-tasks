@@ -239,7 +239,7 @@ def main():
     """Main execution function."""
     # Configuration
     DISCOVERY_DIR = Path("discovery")
-    OUTPUT_DIR = Path("docs")
+    OUTPUT_DIR = Path("site")
     OUTPUT_FILE = OUTPUT_DIR / "school-lunch.ics"
     CALENDAR_NAME = "Kramer Elementary Lunch"
 
