@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Lunch Calendar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .info-box {
+            background: #f7f9fc;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .info-box h2 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .calendar-url {
+            background: #fff;
+            border: 2px solid #667eea;
+            padding: 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            word-break: break-all;
+            margin: 10px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 10px 10px 10px 0;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #5568d3;
+        }
+
+        .instructions {
+            margin: 20px 0;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+        }
+
+        .instructions li {
+            margin: 10px 0;
+        }
+
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .status.active {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍽️ School Lunch Calendar</h1>
+        <p class="subtitle">Automated monthly lunch menu calendar for your family</p>
+
+        <div class="info-box">
+            <h2>📅 Calendar Feed URL</h2>
+            <div class="calendar-url" id="calendarUrl">
+                Loading...
+            </div>
+            <a href="#" class="btn" id="copyBtn">Copy URL</a>
+            <a href="school-lunch.ics" class="btn" download>Download ICS</a>
+        </div>
+
+        <div class="info-box">
+            <h2>📱 Subscribe in Google Calendar</h2>
+            <div class="instructions">
+                <ol>
+                    <li>Open <a href="https://calendar.google.com" target="_blank">Google Calendar</a></li>
+                    <li>Click the <strong>+</strong> next to "Other calendars"</li>
+                    <li>Select <strong>"From URL"</strong></li>
+                    <li>Paste the calendar URL above</li>
+                    <li>Click <strong>"Add calendar"</strong></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h2>🏠 Add to Home Assistant</h2>
+            <div class="instructions">
+                <p>Add this to your <code>configuration.yaml</code>:</p>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 6px; overflow-x: auto; margin-top: 10px;">
+calendar:
+  - platform: ical
+    name: "School Lunch"
+    url: "<span id="haUrl">CALENDAR_URL</span>"</pre>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h2>ℹ️ About</h2>
+            <p>This calendar is automatically updated monthly via GitHub Actions. The menu is fetched from the School Nutrition and Fitness website and converted to iCalendar format.</p>
+            <p style="margin-top: 10px;"><strong>Last updated:</strong> <span id="lastUpdate">Check school-lunch.ics</span></p>
+        </div>
+
+        <div class="footer">
+            <p>Powered by GitHub Pages & GitHub Actions</p>
+            <p style="margin-top: 5px;">
+                <a href="https://github.com" target="_blank" style="color: #667eea;">View on GitHub</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Set the calendar URL dynamically
+        const baseUrl = window.location.origin + window.location.pathname.replace('index.html', '');
+        const calendarUrl = baseUrl + 'school-lunch.ics';
+
+        document.getElementById('calendarUrl').textContent = calendarUrl;
+        document.getElementById('haUrl').textContent = calendarUrl;
+
+        // Copy button functionality
+        document.getElementById('copyBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            navigator.clipboard.writeText(calendarUrl).then(function() {
+                const btn = document.getElementById('copyBtn');
+                const originalText = btn.textContent;
+                btn.textContent = '✓ Copied!';
+                btn.style.background = '#28a745';
+                setTimeout(function() {
+                    btn.textContent = originalText;
+                    btn.style.background = '#667eea';
+                }, 2000);
+            });
+        });
+
+        // Try to get last update time from the ICS file
+        fetch('school-lunch.ics')
+            .then(response => response.text())
+            .then(data => {
+                // Look for DTSTAMP in the ICS file
+                const match = data.match(/DTSTAMP:(\d{8}T\d{6}Z?)/);
+                if (match) {
+                    const timestamp = match[1];
+                    const year = timestamp.substr(0, 4);
+                    const month = timestamp.substr(4, 2);
+                    const day = timestamp.substr(6, 2);
+                    const date = new Date(year, month - 1, day);
+                    document.getElementById('lastUpdate').textContent = date.toLocaleDateString();
+                }
+            })
+            .catch(() => {
+                document.getElementById('lastUpdate').textContent = 'Unknown';
+            });
+    </script>
+</body>
+</html>
