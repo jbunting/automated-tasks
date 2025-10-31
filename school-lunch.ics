@@ -4,19 +4,10 @@ PRODID:-//School Lunch Menu Generator//EN
 X-WR-CALDESC:Automated school lunch menu calendar
 X-WR-CALNAME:Kramer Elementary Lunch
 BEGIN:VEVENT
-SUMMARY:Kramer Lunch: Pulled BBQ Chicken Sandwich
-DTSTART;VALUE=DATE:20251030
-DTEND;VALUE=DATE:20251031
-DTSTAMP:20251030T032007Z
-UID:20251030-lunch@automated-tasks
-DESCRIPTION:Main Dish:\n  • Pulled BBQ Chicken Sandwich\nSides:\n  • S
- easoned Peas\n  • Fresh Romaine Garden Salad\n  • Chilled Pears
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Kramer Lunch: BOO-sco Sticks
 DTSTART;VALUE=DATE:20251031
 DTEND;VALUE=DATE:20251101
-DTSTAMP:20251030T032007Z
+DTSTAMP:20251031T032046Z
 UID:20251031-lunch@automated-tasks
 DESCRIPTION:Main Dish:\n  • BOO-sco Sticks\nSides:\n  • Steamed Brocco
  li\n  • Marinara Cup\nFruit:\n  •  Fresh Apple Slices\nMiscellaneous:\
